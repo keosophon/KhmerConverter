@@ -1,0 +1,13 @@
+- file filters for dialogs
+- include FK2 (font differ from FK1)
+- add non-breaking-space with some more characters (khan)
+
+
+
+
+
+
+
+
+
+

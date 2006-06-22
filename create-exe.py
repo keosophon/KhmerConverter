@@ -31,5 +31,5 @@ import py2exe
 import sys
 sys.argv.append("py2exe")
 
-setup(console = [{"script": 'khmerConverter.py'}],
+setup(console = [{"script": 'khmerconverter.py'}],
 packages = ['modules'])
