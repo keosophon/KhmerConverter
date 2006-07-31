@@ -459,7 +459,7 @@ class TestReordering(unittest.TestCase):
         self.assertEqual(reorder(u'កកុះwelcomeកុម្ភៈ'), u'កកុះwelcomeកុម្ភៈ')
         # two shifter or 3 vowel or 4 sign
         self.assertEqual(reorder(u'៊៊'), DOTCIRCLE + u'៊' + DOTCIRCLE + u'៊')
-        self.assertEqual(reorder(u'ាិី'), DOTCIRCLE + u'ា' + DOTCIRCLE + 'ិ' + DOTCIRCLE + u'ី')
+        self.assertEqual(reorder(u'ាិី'), DOTCIRCLE + u'ា' + DOTCIRCLE + u'ិ' + DOTCIRCLE + u'ី')
         self.assertEqual(reorder(u'ំះ័'), DOTCIRCLE + u'ំ' + DOTCIRCLE + u'ះ' + DOTCIRCLE + u'័')
         # muusikatoan not convert when vowel is not high
         self.assertEqual(reorder(u'ម៉្ងៃ'), u'ៃម៉្ង')

@@ -205,7 +205,7 @@ class TestConvertOdt(unittest.TestCase):
 
         convertedXml = u"""<?xml version="1.0" ?><office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:font-face-decls><style:font-face style:name="ABC-TEXT-05" svg:font-family="ABC-TEXT-05"/></office:font-face-decls><office:automatic-styles><style:style style:family="text" style:name="khmerStyle"><style:text-properties style:font-name="ABC-TEXT-05"/></style:style></office:automatic-styles><office:body><office:text><text:p text:style-name="Standard"><text:span text:style-name="khmerStyle">kxK</text:span>abc<text:span text:style-name="khmerStyle">c q C</text:span>xyz</text:p></office:text></office:body></office:document-content>"""
 
-        self.assertEqual(xmlProcess(myXml, 'ABC-TEXT-05'), convertedXml)
+        self.assertEqual(xmlProcess(myXml.encode('utf-8'), 'ABC-TEXT-05'), convertedXml)
 
 if __name__ == '__main__':
     unittest.main()

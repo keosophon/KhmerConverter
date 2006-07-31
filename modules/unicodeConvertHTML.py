@@ -272,14 +272,14 @@ class TestConvertHTMLFile(unittest.TestCase):
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>ក</body></html>')
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>ក</body></html>')
 
         # convert two character
         data ='<html><head><TITLE>sala</TITLE></head><body>kx</body></html>'
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>កខ</body></html>')       
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>កខ</body></html>')       
 
     def testEntity(self):
         # test character with value less than 0xFF
@@ -287,42 +287,42 @@ class TestConvertHTMLFile(unittest.TestCase):
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>ក</body></html>')        
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>ក</body></html>')        
 
         # test &#x1780;
         data ='<html><head><TITLE>sala</TITLE></head><body>&#x1780;</body></html>'        
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>ក</body></html>')
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>ក</body></html>')
 
        # test &#6016;
         data ='<html><head><TITLE>sala</TITLE></head><body>&#6016;</body></html>'        
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>ក</body></html>')
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>ក</body></html>')
 
         # test entities with no ;
         data ='<html><head><TITLE>sala</TITLE></head><body>&#6016&#x1780</body></html>'        
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj, foutobj, 'abc', 'iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>កក</body></html>')
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>កក</body></html>')
 
         # test &copy;
         data ='<html><head><TITLE>sala</TITLE></head><body>&copy;</body></html>'        
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj,foutobj,'abc','iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>្ច</body></html>')    
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>្ច</body></html>')    
 
         # test &copy
         data ='<html><head><TITLE>sala</TITLE></head><body>&copy</body></html>'        
         finobj = StringIO.StringIO(data)
         foutobj = StringIO.StringIO()
         convert(finobj,foutobj,'abc','iso-8859-1')
-        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + '<TITLE>sala</TITLE></head><body>ចៀ័ផយ</body></html>')
+        self.assertEqual(foutobj.getvalue(), u'<html><head>' + self.METALF + u'<TITLE>sala</TITLE></head><body>ចៀ័ផយ</body></html>')
         # test &amp;
         data ='<html><head><TITLE>sala</TITLE></head><body>&amp;</body></html>'        
         finobj = StringIO.StringIO(data)
