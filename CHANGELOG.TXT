@@ -1,3 +1,10 @@
 
 
 10. June 2006, release of version 1.0
+
+01-08-06 (by virak & da):
+- 4 unittests had already been fixed in the following files:
+	1. modules/legacyReorder.py
+	2. modules/legacyConvertHTML.py
+ 	3. modules/legacyConvertOdt.py
+	4.modules/unicodeConvertHTML.py
