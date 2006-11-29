@@ -47,6 +47,7 @@ def convertOdtFile(inputFileName, outputFileName, outputFont, outputFontSize = N
     """
         
     CONTENTXML = 'content.xml'
+    KHMERSTYLE = 'khmerConverter_DefaultStyle'
 
     fd = FontData()
     if (not fd.isConvertable(outputFont)):
@@ -139,7 +140,7 @@ def xmlProcess(xmlData, fontNameReplace, fontSizeReplace = None):
                 khmStr = khmStr.decode('cp1252')
                 # add new khmer node
                 khmNode = xmldoc.createElement('text:span')
-                khmNode.setAttribute('text:style-name', 'khmerStyle')
+                khmNode.setAttribute('text:style-name', KHMERSTYLE)
                 # add data
                 txtNode = xmldoc.createTextNode(khmStr)
                 khmNode.appendChild(txtNode)
