@@ -130,7 +130,8 @@ if (options.showtimer):
 if (options.oldfont):
     if (inputFileName.endswith('.odt')):
         from modules import legacyConvertOdt
-        legacyConvertOdt.convertOdtFile(inputFileName, outputFileName, options.font, options.fontSize)
+        converter = legacyConvertOdt.legacyConvertOdt()
+        converter.convertOdtFile(inputFileName, outputFileName, options.font, options.fontSize)
     elif(inputFileName.endswith('.htm') or inputFileName.endswith('.html')):
         from modules import legacyConvertHTML
         legacyConvertHTML.convertHTML(inputFileName, outputFileName, options.font)
