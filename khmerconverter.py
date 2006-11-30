@@ -141,7 +141,8 @@ if (options.oldfont):
 else:
     if (inputFileName.endswith('.odt')):
         from modules import unicodeConvertOdt
-        unicodeConvertOdt.convertOdtFile(inputFileName, outputFileName, options.font, options.fontSize)
+        converter = unicodeConvertOdt.unicodeConvertOdt()
+        converter.convertOdtFile(inputFileName, outputFileName, options.font, options.fontSize)
     elif(inputFileName.endswith('.htm') or inputFileName.endswith('.html')):
         from modules import unicodeConvertHTML
         unicodeConvertHTML.convertHTMLFile(inputFileName, outputFileName, options.font)

@@ -37,6 +37,7 @@ INKHMER = SP + ZWSP + ZWNJ + ZWJ
 STARTKHMER = u"«»" + ZWNJ + ZWSP + ZWJ
 MINUNIC = 0x1780
 MAXUNIC = 0x17FF
+KHMERSTYLE = 'khmerConverter_DefaultStyle'
 
 def convertOdtFile(inputFileName, outputFileName, outputFont, outputFontSize = None):
     """This function converts OpenOffice.org Writer file.
@@ -47,7 +48,6 @@ def convertOdtFile(inputFileName, outputFileName, outputFont, outputFontSize = N
     """
         
     CONTENTXML = 'content.xml'
-    KHMERSTYLE = 'khmerConverter_DefaultStyle'
 
     fd = FontData()
     if (not fd.isConvertable(outputFont)):
@@ -102,11 +102,10 @@ def xmlProcess(xmlData, fontNameReplace, fontSizeReplace = None):
             currNode = process(currNode)
             currNode = currNode.nextSibling
     
-
     def process(node):
         """
         take Khmer Unicode data out of current node, convert it and put
-        it in a new node which mark as Khmer.
+        it in a new node which mark as khmerConverter_DefaultStyle.
         """
         if not node.nodeValue:
             return node

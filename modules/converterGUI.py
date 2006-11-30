@@ -207,7 +207,8 @@ def evConvert():
         if (direction == TOUNICODE):
             if (docType == TYPEODT):
                 import unicodeConvertOdt
-                unicodeConvertOdt.convertOdtFile(inputFile, outputFile, font, fontSize)
+                converter = unicodeConvertOdt.unicodeConvertOdt()
+                converter.convertOdtFile(inputFile, outputFile, font, fontSize)
             elif (docType == TYPEHTML):
                 import unicodeConvertHTML
                 unicodeConvertHTML.convertHTMLFile(inputFile, outputFile, font)
@@ -342,7 +343,7 @@ for font in fd.listFontTypes():
     for fontName in fd.listFontNamesForType(font):
         legacyFontList.append("  " + fontName)
 
-unicodeFontList = ['Khmer OS', 'Khmer OS Bokor', 'Khmer OS Fasthand', 'Khmer OS Freehand','Khmer OS Metal Chrieng', 'Khmer OS Moul', 'Khmer OS System']
+unicodeFontList = ['Khmer OS', 'Khmer OS Bokor', 'Khmer OS Fasthand', 'Khmer OS Freehand','Khmer OS Metal Chrieng', 'Khmer OS Moul', 'Khmer OS System', 'Khmer OS Battambang']
 encodingList = fd.listEncodingTypes()
 documentList = [TYPETEXT, TYPEODT, TYPEHTML]
 
