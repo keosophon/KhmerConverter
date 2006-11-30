@@ -29,13 +29,14 @@ import unicodeReorder
 import unittest
 from zlib import DEFLATED
 
-fd = FontData()
-
 class unicodeConvertOdt:
     def __init__(self):
         self.CONTENTXML = 'content.xml'
         self.STYLESXML = 'styles.xml'
         self.convertibleStyle = {}
+        self.fd = FontData()
+        self.outputFont = "Khmer OS"
+        self.outputFontSize = None
 
     def convertOdtFile(self, inputFileName, outputFileName, outputFont = None, outputFontSize = None):
         """This function convert OpenOffice.Org writer file
@@ -47,8 +48,6 @@ class unicodeConvertOdt:
         self.outputFont = outputFont
         if (outputFontSize):
             self.outputFontSize = str(outputFontSize) + 'pt'
-        else:
-            self.outputFontSize = None
         
         if (inputFileName == outputFileName):
             raise TypeError('input file and output file must be different!')
@@ -86,7 +85,7 @@ class unicodeConvertOdt:
         zipIn.close()
     
     def processContent(self, xmldata):
-        """change font name and size, convert date to unicode in xmldata
+        """change font name and size, convert data to unicode in xmldata
         @param xmldata: xml string to parse."""
         self.xmldoc = minidom.parseString(xmldata)
         officeNode = self.xmldoc.getElementsByTagName('office:text')
@@ -97,7 +96,7 @@ class unicodeConvertOdt:
         return self.xmldoc.toxml('utf-8')
     
     def processStyle(self, xmldata):
-        """change font name and size, convert date to unicode in xmldata
+        """change font name and size, convert data to unicode in xmldata
         @param xmldata: xml string to parse."""
         self.xmldoc = minidom.parseString(xmldata)
         officeDocStylesNode = self.xmldoc.getElementsByTagName('office:document-styles')
@@ -114,23 +113,30 @@ class unicodeConvertOdt:
             if node.hasChildNodes():
                 for child in node.childNodes:
                     function(child)
-                    #convertIfLegacy(child)
                 self.goThru (node.childNodes, function)
     
     def replaceFont(self, node):
         """look for node which has "style:font-name" attribute and change its value to fontName."""
         try:
-            fontName = node.getAttribute(u'style:font-name')
+            fontName = node.getAttribute('style:font-name')
             if (fontName):
-                fonttype = fd.typeForFontname(fontName)
-                if (fonttype):
-                    # add name to convertible list
-                    self.convertibleStyle[unicode(node.parentNode.getAttribute(u'style:name'))] = fonttype
-                    node.setAttribute(u'style:font-name', self.outputFont)
-                    node.setAttribute('style:font-name-complex', self.outputFont)
-                    if (self.outputFontSize != None):
-                        node.setAttribute(u'style:font-size-asian', self.outputFontSize)
-                        node.setAttribute('style:font-size-complex', self.outputFontSize)
+                fontType = self.fd.typeForFontname(fontName)
+                # add name to convertible list
+                self.convertibleStyle[unicode(node.parentNode.getAttribute('style:name'))] = fontType
+                node.removeAttribute('style:font-name')
+                node.setAttribute('style:font-name-complex', self.outputFont)
+                if (self.outputFontSize):
+                    node.setAttribute('style:font-size-complex', self.outputFontSize)
+        except:
+            pass
+            
+        try:
+            styleName = node.getAttribute('style:name')
+            if (styleName):
+                fontType = self.fd.typeForFontname(styleName)
+                self.convertibleStyle[styleName] = fontType
+                node.setAttribute('style:name', self.outputFont)
+                node.setAttribute('svg:font-family', self.outputFont)
         except:
             pass
 
@@ -158,63 +164,37 @@ class unicodeConvertOdt:
                     tmpChar = char.encode('cp1252')
                 except UnicodeEncodeError:
                     if (part):
-                        part = unicodeProcess.process(part, fd.legacyData(fontname))
+                        part = unicodeProcess.process(part, self.fd.legacyData(fontname))
                         result += unicodeReorder.reorder(part)
                         part = ''
                     result += char
                 else:
                     part += tmpChar
             if (part):
-                part = unicodeProcess.process(part, fd.legacyData(fontname))
+                part = unicodeProcess.process(part, self.fd.legacyData(fontname))
                 result += unicodeReorder.reorder(part)
             sin = result
         else:
-            sin = unicodeProcess.process(sin, fd.legacyData(fontname))
+            sin = unicodeProcess.process(sin, self.fd.legacyData(fontname))
             sin = unicodeReorder.reorder(sin)
         newtext = self.xmldoc.createTextNode(sin) # create text of Node
         node.parentNode.replaceChild(newtext, node)
 
 
-##class TestConvertOdt(unittest.TestCase):
-##    def testSameFile(self):
-##        # same file raise error
-##        self.assertRaises(TypeError, convertOdtFile, 'file1', 'file1')
-##
-##    def testUnreadable(self):
-##        # assert error if file is unreadable
-##        self.assertRaises(IOError, convertOdtFile, '!@#$%^&', 'file2')
-##        
-##    def testModifyStyle(self):
-##        xmldata = """<?xml version="1.0" encoding="UTF-8"?>
-##        <office:document-styles xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" office:version="1.0">
-##            <office:font-face-decls>
-##                <style:font-face style:name="Limon S1" svg:font-family="'Limon S1'" style:font-pitch="variable"/>
-##            </office:font-face-decls>
-##            <office:styles>
-##                <style:style style:name="Khmer" style:family="text" style:parent-style-name="Default_20_Paragraph_20_Font">
-##                    <style:text-properties style:font-name="Limon S1" fo:font-size="16pt" style:font-size-asian="16pt"/>
-##                </style:style>
-##            </office:styles>
-##            <office:automatic-styles></office:automatic-styles>
-##            <office:master-styles></office:master-styles>
-##        </office:document-styles>"""
-##        modxmldata = 'haha'
-##        self.assertEqual(modifyStyle(xmldata), modxmldata)
-##
-##if __name__ == '__main__':
-##
-##    xmldata = """<?xml version="1.0" encoding="UTF-8"?>
-##    <office:document-styles xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" office:version="1.0">
-##        <office:font-face-decls>
-##            <style:font-face style:name="Limon S1" svg:font-family="'Limon S1'" style:font-pitch="variable"/>
-##        </office:font-face-decls>
-##        <office:styles>
-##            <style:style style:name="Khmer" style:family="text" style:parent-style-name="Default_20_Paragraph_20_Font">
-##                <style:text-properties style:font-name="Limon S1" fo:font-size="16pt" style:font-size-asian="16pt"/>
-##            </style:style>
-##        </office:styles>
-##        <office:automatic-styles></office:automatic-styles>
-##        <office:master-styles></office:master-styles>
-##    </office:document-styles>"""
-##    modifyStyle(xmldata)
-##    #unittest.main()
+class TestConvertOdt(unittest.TestCase):
+    def testSameFile(self):
+        # same file raise error
+        self.assertRaises(TypeError, unicodeConvertOdt().convertOdtFile, 'file1', 'file1')
+
+    def testUnreadable(self):
+        # assert error if file is unreadable
+        self.assertRaises(IOError, unicodeConvertOdt().convertOdtFile, '!@#$%^&', 'file2')
+        
+    def testModifyStyle(self):
+        xmldata = """<?xml version="1.0" encoding="utf-8"?><office:document-styles office:version="1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"><office:font-face-decls><style:font-face style:font-pitch="variable" style:name="Limon S1" svg:font-family="Limon S1"/></office:font-face-decls><office:styles><style:style style:family="text" style:name="Khmer" style:parent-style-name="Default_20_Paragraph_20_Font"><style:text-properties fo:font-size="16pt" style:font-name="Limon S1" style:font-size-asian="16pt"/></style:style></office:styles><office:automatic-styles/><office:master-styles/></office:document-styles>"""
+        modxmldata = xmldata.replace("Limon S1", "Khmer OS")
+        modxmldata = modxmldata.replace("style:font-name", "style:font-name-complex")
+        self.assertEqual(unicodeConvertOdt().processStyle(xmldata), modxmldata)
+
+if __name__ == '__main__':
+    unittest.main()

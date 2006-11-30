@@ -219,7 +219,8 @@ def evConvert():
         else:
             if (docType == TYPEODT):
                 import legacyConvertOdt
-                legacyConvertOdt.convertOdtFile(inputFile, outputFile, font, fontSize)
+                converter = legacyConvertOdt.legacyConvertOdt()
+                converter.convertOdtFile(inputFile, outputFile, font, fontSize)
                 
             elif (docType == TYPEHTML):
                 import legacyConvertHTML
