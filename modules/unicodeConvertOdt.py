@@ -133,6 +133,12 @@ class unicodeConvertOdt:
         try:
             styleName = node.getAttribute('style:name')
             if (styleName):
+                # if node's parent style is also convertible, node is also convertible.
+                if (node.hasAttribute('style:parent-style-name')):
+                    ParentStyleName = node.getAttribute('style:parent-style-name')
+                    if self.convertibleStyle.has_key(ParentStyleName):
+                        # add to convertible style
+                        self.convertibleStyle[styleName] = self.convertibleStyle[ParentStyleName]
                 fontType = self.fd.typeForFontname(styleName)
                 self.convertibleStyle[styleName] = fontType
                 node.setAttribute('style:name', self.outputFont)
