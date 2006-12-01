@@ -25,6 +25,13 @@ import FontDataXML
 import os
 import tkFont
 
+# Python 2.3 only has sets as a module
+try:
+    foo = set()
+    del(foo)
+except:
+    from sets import Set as set
+
 # constants
 TOUNICODE = 'unicode'
 TOLEGACY = 'legacy'
