@@ -1,5 +1,5 @@
 # Khmer converter
-# (c) 2006 Open Forum of Cambodia, all rights reserved.
+# (c) 2006 The WordForge Foundation, all rights reserved.
 #
 # Version 1.1 (01 December 2006)
 #
@@ -28,9 +28,9 @@ class HelpText:
         self.help.text['font'] = 'serif 12'
         self.help.subwidget_list['text'].insert(END, """Khmer Converter
 
-Version: 1.0
-Date: 10.06.2006
-Copyright (c) 2006 by Open Forum of Cambodia (All Rights Reserved)
+Version: 1.1
+Date: 01 December.2006
+Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 
 This program converts plain text, OpenOffice.org Writer (odt) or HTML File from 
 legacy to unicode format or vice versa. The currently supported legacy fonts 
