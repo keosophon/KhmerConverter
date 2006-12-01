@@ -23,6 +23,13 @@ import unittest
 from types import *
 from xml.dom.minidom import parse
 
+# Python 2.3 only has sets as a module
+try:
+    foo = set()
+    del(foo)
+except: 
+    from sets import Set as set
+
 MAXUNI = 0x7f  # length of unicode table 
 MAXLEG = 0x100 # length of legacy table
 MAXLENGTH = 10 # maximun length of allowed unicode replacement
@@ -152,7 +159,7 @@ class FontData:
             try:                
                 sin = sin.decode(encoding)
                 sin = sin.encode('cp1252')
-            except UnicodeEncodeError:                
+            except UnicodeEncodeError:
                     raise TypeError("Codecs Error")
         return sin
         
@@ -229,7 +236,7 @@ class FontData:
         else:
             # init variables
             unicodeDicts = list()
-            unicodeTable = list( "" for i in range(MAXUNI)) 
+            unicodeTable = ["" for i in range(MAXUNI)]
 
         maps = font.getElementsByTagName("maps")
         if (len(maps) > 0):
@@ -257,7 +264,7 @@ class FontData:
         else:
             # init variables
             legacyDict = dict()
-            legacyTable = list( unichr(i) for i in range(MAXLEG))
+            legacyTable = [unichr(i) for i in range(MAXLEG)]
 
         maps = font.getElementsByTagName("maps")
         if (len(maps) > 0):
