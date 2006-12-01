@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 # Khmer Lnicode fonts to Khmer Legacy Conversion
-# (c) 2005 Open Forum of Cambodia, all rights reserved.
+# (c) 2006 The WordForge Foundation, all rights reserved.
 #
 # Version 1.1 (01 December 2006)
 #
