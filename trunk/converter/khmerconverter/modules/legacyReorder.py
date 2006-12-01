@@ -4,7 +4,7 @@
 # Khmer Lnicode fonts to Khmer Legacy Conversion
 # (c) 2005 Open Forum of Cambodia, all rights reserved.
 #
-# Version 1.0 (10 June 2006)
+# Version 1.1 (01 December 2006)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
