@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
-# (c) 2006 Open Forum of Cambodia, all rights reserved.
+# (c) 2006 The WordForge Foundation, all rights reserved.
 #
 # Version 1.1 (01 December 2006)
 #
@@ -40,8 +40,8 @@ Currently supported file formats are:
     OpenOffice writer document
     HTML"""
 
-strVersion = """%prog Version 1.0\n
-Copyright (C) 2006 Open Forum of Cambodia. www.khmeros.info.
+strVersion = """%prog Version 1.1\n
+Copyright (C) 2006 The WordForge Foundation. www.khmeros.info.
 This is free software. You may redistribute copies of it under the terms of
 the GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>.
 There is NO WARRANTY, to the extent permitted by law.
