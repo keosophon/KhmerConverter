@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
-# (c) 2006 Open Forum of Cambodia, all rights reserved.
+# (c) 2006 The WordForge Foundation, all rights reserved.
 #
 # Version 1.1 (01 December 2006)
 #
