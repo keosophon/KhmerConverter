@@ -1,4 +1,8 @@
-
+01 December 2006:
+    - Conversion of ODT files improved:
+        - Header/footer is now also convertible.
+        - Complex styles of document is searched and converted.
+    - Add "Khmer OS Battambang" to converter GUI.
 
 10. June 2006, release of version 1.0
 
