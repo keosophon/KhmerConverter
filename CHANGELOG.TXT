@@ -3,12 +3,16 @@
         - Header/footer is now also convertible.
         - Complex styles of document is searched and converted.
     - Add "Khmer OS Battambang" to converter GUI.
+    - improved converterGUI to run with python2.3
+	
 
-10. June 2006, release of version 1.0
-
-01-08-06 (by virak & da):
-- 4 unittests had already been fixed in the following files:
+01 August 2006:
+    - 4 unittests had already been fixed in the following files:
 	1. modules/legacyReorder.py
 	2. modules/legacyConvertHTML.py
  	3. modules/legacyConvertOdt.py
 	4.modules/unicodeConvertHTML.py
+
+
+10 June 2006:
+    - release of version 1.0
