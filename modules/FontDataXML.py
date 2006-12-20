@@ -90,7 +90,10 @@ class FontData:
     
     def typeForFontname(self, fontname):
         """ return fonttype for fontname  """
+        # No dash, no underscore
         name = fontname.lower()
+        name = name.replace("-", " ")
+        name = name.replace("_", " ")
         if (not FontData.fontNames.has_key(name)):
             raise self.FontNotFoundError("Font: " + name + " is unknown.")
         return FontData.fontNames[name]
@@ -213,7 +216,10 @@ class FontData:
                 # add alias names 
                 aliases = font.getElementsByTagName("alias")
                 for alias in aliases:
-                    FontData.fontNames[alias.getAttribute("name").lower()] = fonttype
+                    fontname = alias.getAttribute("name").lower()
+                    fontname = fontname.replace("-", " ")
+                    fontname = fontname.replace("_", " ")
+                    FontData.fontNames[fontname] = fonttype
                     
     def __readUnicodeData(self, fonttype):
         """ reads the unicode data for one font from the dom tree """
