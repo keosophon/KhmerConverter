@@ -216,9 +216,11 @@ class TestConvertOdt(unittest.TestCase):
         self.assertRaises(IOError, legacyConvertOdt().convertOdtFile, 'AfileTHATdoesNOTexist', 'file1', 'abc')
     
     def testProcessContent(self):
-        myXml = u"""<?xml version="1.0" ?><office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:font-face-decls/><office:automatic-styles/><office:body><office:text><text:p text:style-name="Standard">កខគabcច ឆ ជxyz</text:p></office:text></office:body></office:document-content>"""
+        myXml = u"""<?xml version="1.0" ?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:font-face-decls/><office:automatic-styles/><office:body><office:text><text:p text:style-name="Standard">កខគabcច ឆ ជxyz</text:p></office:text></office:body></office:document-content>"""
 
-        convertedXml = u"""<?xml version="1.0" ?><office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:font-face-decls><style:font-face style:name="ABC-TEXT-05" svg:font-family="ABC-TEXT-05"/></office:font-face-decls><office:automatic-styles><style:style style:family="text" style:name=\"""" + KHMERSTYLE + """\"><style:text-properties style:font-name="ABC-TEXT-05"/></style:style></office:automatic-styles><office:body><office:text><text:p text:style-name="Standard"><text:span text:style-name=\"""" + KHMERSTYLE + """\">kxK</text:span>abc<text:span text:style-name=\"""" + KHMERSTYLE + """\">c q C</text:span>xyz</text:p></office:text></office:body></office:document-content>"""
+        convertedXml = u"""<?xml version="1.0" ?>
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:font-face-decls><style:font-face style:name="ABC-TEXT-05" svg:font-family="ABC-TEXT-05"/></office:font-face-decls><office:automatic-styles><style:style style:family="text" style:name=\"""" + KHMERSTYLE + """\"><style:text-properties style:font-name="ABC-TEXT-05"/></style:style></office:automatic-styles><office:body><office:text><text:p text:style-name="Standard"><text:span text:style-name=\"""" + KHMERSTYLE + """\">kxK</text:span>abc<text:span text:style-name=\"""" + KHMERSTYLE + """\">c q C</text:span>xyz</text:p></office:text></office:body></office:document-content>"""
 
         self.assertEqual(legacyConvertOdt().processContent(myXml.encode('utf-8')), convertedXml)
 

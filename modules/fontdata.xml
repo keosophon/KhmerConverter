@@ -705,13 +705,19 @@
             </maps>
         </font>
 
-        <font type="khek" inherit="digit" default="@Anlongvill Khek">
+        <font type="khek" inherit="digit" default="Khek Anlongvill">
             <aliases>
+                <alias name="Khek Anlongvill"/>
                 <alias name="@Anlongvill Khek"/>
+                <alias name="Khek Battambang"/>
                 <alias name="@Battambang Khek"/>
+                <alias name="Khek Mool"/>
                 <alias name="@Mool Khek"/>
+                <alias name="Khek Riel"/>
                 <alias name="@Riel Khek"/>
+                <alias name="Khek Sambot"/>
                 <alias name="@Sambot Khek"/>
+                <alias name="Khek Samreth"/>
                 <alias name="@Samreth Khek"/>
             </aliases>
             <maps>
