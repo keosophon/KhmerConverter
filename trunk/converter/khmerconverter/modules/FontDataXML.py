@@ -35,6 +35,12 @@ MAXLEG = 0x100 # length of legacy table
 MAXLENGTH = 10 # maximun length of allowed unicode replacement
 LEGSEP = ";" # separator for legacy attributes
 
+
+def beautify(fontname):
+    """lowercase and no dash, no underscore"""
+    return fontname.lower().replace("-", " ").replace("_", " ")
+
+
 class FontData:
     """ reads the fontdata from an XML file into a DOM tree
         but creates the data structures for the fonts only on demand """
@@ -90,10 +96,7 @@ class FontData:
     
     def typeForFontname(self, fontname):
         """ return fonttype for fontname  """
-        # No dash, no underscore
-        name = fontname.lower()
-        name = name.replace("-", " ")
-        name = name.replace("_", " ")
+        name = beautify(fontname)
         if (not FontData.fontNames.has_key(name)):
             raise self.FontNotFoundError("Font: " + name + " is unknown.")
         return FontData.fontNames[name]
@@ -212,14 +215,11 @@ class FontData:
             hidden = (font.getAttribute("hidden").lower() == 'true')
             if (not hidden):
                 # add default fonttype to known fontnames
-                FontData.fontNames[fonttype] = fonttype
+                FontData.fontNames[beautify(fonttype)] = fonttype
                 # add alias names 
                 aliases = font.getElementsByTagName("alias")
                 for alias in aliases:
-                    fontname = alias.getAttribute("name").lower()
-                    fontname = fontname.replace("-", " ")
-                    fontname = fontname.replace("_", " ")
-                    FontData.fontNames[fontname] = fonttype
+                    FontData.fontNames[beautify(alias.getAttribute("name"))] = fonttype
                     
     def __readUnicodeData(self, fonttype):
         """ reads the unicode data for one font from the dom tree """
@@ -475,6 +475,8 @@ class TestFontData(unittest.TestCase):
         for font in self.dataClass.listFontNames():
             self.assert_(self.dataClass.isConvertable(font))
             self.assert_(self.dataClass.isConvertable(font.upper()))
+            self.assert_(self.dataClass.isConvertable(font.replace(" ", "-")))
+            self.assert_(self.dataClass.isConvertable(font.replace(" ", "_")))
 
     def testAddToUniData(self):
         unicode = u"abcDEFG"
