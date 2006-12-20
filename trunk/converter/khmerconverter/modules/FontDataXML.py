@@ -284,8 +284,11 @@ class FontData:
             legacy = self.__decodeLegacy(map.getAttribute("legacy").encode("cp1252"))
             l = len(legacy)
             if (l > 0 and l < MAXLENGTH):
-                legacyDict[legacy] = unicode
-                
+                if (not legacyDict.has_key(legacy)):
+                    legacyDict[legacy] = unicode
+                else:
+                    raise self.XMLDataError("Legacy character " + legacy + " defined twice in toUnicode.")
+
     def __readFromUnicode(self, element, unicodeDicts):
         """ read the unicode replacements """
         maps = element.getElementsByTagName("fromunicode")
