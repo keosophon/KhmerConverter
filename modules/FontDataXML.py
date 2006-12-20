@@ -89,7 +89,7 @@ class FontData:
         """return sorted list of all known font names for a font type """
         nameList = []
         for name, type in FontData.fontNames.iteritems():
-            if ((type == fonttype) and (type != name)):
+            if ((type == fonttype) and (beautify(type) != name)):
                 nameList.append(name)
         nameList.sort()
         return nameList
@@ -496,6 +496,14 @@ class TestFontData(unittest.TestCase):
             self.dataClass.unicodeData(font)
             self.dataClass.legacyData(font)
         
+    def testListFontNamesForType(self):
+        """ test that list of font names is correct """
+        self.dataClass.readXML("fontdata.xml")
+        # the type should not be in the list of fonts for this type
+        for fontType in self.dataClass.listFontTypes():
+            fontList = self.dataClass.listFontNamesForType(fontType)
+            for font in fontList:
+                self.assert_(not font == fontType)
 
 if __name__ == '__main__':
     unittest.main()
