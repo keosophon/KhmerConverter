@@ -396,6 +396,8 @@ class TestFontData(unittest.TestCase):
         self.assertRaises(self.dataClass.XMLDataError, self.dataClass.unicodeData, "abc")
         self.dataClass.readXML("test-doublelegacy2.xml")
         self.assertRaises(self.dataClass.XMLDataError, self.dataClass.legacyData, "abc")
+        self.dataClass.readXML("test-doublelegacy3.xml")
+        self.assertRaises(self.dataClass.XMLDataError, self.dataClass.legacyData, "abc")
 
     def testListFontNames(self):
         fonts = self.dataClass.listFontNames()
@@ -488,6 +490,7 @@ class TestFontData(unittest.TestCase):
         self.dataClass.readXML("fontdata.xml")
         fonts = self.dataClass.listFontNames()
         for font in fonts:
+            print font
             self.dataClass.unicodeData(font)
             self.dataClass.legacyData(font)
         
