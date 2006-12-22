@@ -1,3 +1,10 @@
+21 December 2006:
+    - Improved fontdata.xml: removing duplicated legacy entries.
+    - Add one test case: test-doublelegacy3.xml
+    - Add more Alias name for Khek
+    - Improving coplex styles of ODT files
+
+
 01 December 2006:
     - Conversion of ODT files improved:
         - Header/footer is now also convertible.
