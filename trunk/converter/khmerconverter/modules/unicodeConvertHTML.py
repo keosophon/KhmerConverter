@@ -4,7 +4,7 @@
 # Khmer Legacy fonts to Khmer Unicode Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.1 (01 December 2006)
+# Version 1.2 (21 December 2006)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License

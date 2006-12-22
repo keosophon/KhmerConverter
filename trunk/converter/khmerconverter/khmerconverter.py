@@ -4,7 +4,7 @@
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.1 (01 December 2006)
+# Version 1.2 (21 December 2006)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
@@ -40,7 +40,7 @@ Currently supported file formats are:
     OpenOffice writer document
     HTML"""
 
-strVersion = """%prog Version 1.1\n
+strVersion = """%prog Version 1.2\n
 Copyright (C) 2006 The WordForge Foundation. www.khmeros.info.
 This is free software. You may redistribute copies of it under the terms of
 the GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>.
