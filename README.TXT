@@ -2,7 +2,7 @@
 	Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 				www.khmeros.info
 
-Version:	1.1	Date:	01.December.2006
+Version:	1.2	Date:	21.December.2006
 
 Developed by:
 	Hok Kakada (hokkakada@khmeros.info)
