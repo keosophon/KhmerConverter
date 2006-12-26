@@ -1151,6 +1151,98 @@
                 </fromunicode>
             </maps>
         </font>
-       
+        <font type="vntimes" default=".VnTime" >
+            <aliases>
+                <alias name=".VnTime"/>
+            </aliases>
+            <maps>
+                <global>
+                    <map legacy="0xa1" unicode="Ă"/>
+                    <map legacy="0xa2" unicode="Â"/>
+                    <map legacy="0xa3" unicode="Ê"/>
+                    <map legacy="0xa4" unicode="Ô"/>
+                    <map legacy="0xa5" unicode="Ơ"/>
+                    <map legacy="0xa6" unicode="Ư"/>
+                    <map legacy="0xa7" unicode="Đ"/>
+                    <map legacy="0xa8" unicode="ă"/>
+                    <map legacy="0xa9" unicode="â"/>
+                    <map legacy="0xaa" unicode="ê"/>
+                    <map legacy="0xab" unicode="ô"/>
+                    <map legacy="0xac" unicode="ơ"/>
+                    <map legacy="0xad" unicode="ư"/>
+                    <map legacy="0xae" unicode="đ"/>
+                    <map legacy="0xb5" unicode="à"/>
+                    <map legacy="0xb6" unicode="ả"/>
+                    <map legacy="0xb7" unicode="ã"/>
+                    <map legacy="0xb8" unicode="á"/>
+                    <map legacy="0xb9" unicode="ạ"/>
+                    <map legacy="0xbb" unicode="ằ"/>
+                    <map legacy="0xbc" unicode="ẳ"/>
+                    <map legacy="0xbd" unicode="ẵ"/>
+                    <map legacy="0xbe" unicode="ắ"/>
+                    <map legacy="0xc0" unicode="ẻ"/>
+                    <map legacy="0xc1" unicode="ẽ"/>
+                    <map legacy="0xc2" unicode="ẹ"/>
+                    <map legacy="0xc3" unicode="ë"/>
+                    <map legacy="0xc4" unicode="ƒ"/>
+                    <map legacy="0xc6" unicode="ặ"/>
+                    <map legacy="0xc7" unicode="ầ"/>
+                    <map legacy="0xc8" unicode="ẩ"/>
+                    <map legacy="0xc9" unicode="ẫ"/>
+                    <map legacy="0xca" unicode="ấ"/>
+                    <map legacy="0xcb" unicode="ậ"/>
+                    <map legacy="0xcc" unicode="è"/>
+                    <map legacy="0xd0" unicode="é"/>
+                    <map legacy="0xd2" unicode="ề"/>
+                    <map legacy="0xd3" unicode="ể"/>
+                    <map legacy="0xd4" unicode="ễ"/>
+                    <map legacy="0xd5" unicode="ế"/>
+                    <map legacy="0xd6" unicode="ệ"/>
+                    <map legacy="0xd7" unicode="ì"/>
+                    <map legacy="0xd8" unicode="ỉ"/>
+                    <map legacy="0xda" unicode="ï"/>
+                    <map legacy="0xdb" unicode="î"/>
+                    <map legacy="0xdc" unicode="ĩ"/>
+                    <map legacy="0xdd" unicode="í"/>
+                    <map legacy="0xde" unicode="ị"/>
+                    <map legacy="0xdf" unicode="ò"/>
+                    <map legacy="0xe1" unicode="ỏ"/>
+                    <map legacy="0xe2" unicode="õ"/>
+                    <map legacy="0xe3" unicode="ó"/>
+                    <map legacy="0xe4" unicode="ọ"/>
+                    <map legacy="0xe5" unicode="ồ"/>
+                    <map legacy="0xe6" unicode="ổ"/>
+                    <map legacy="0xe7" unicode="ỗ"/>
+                    <map legacy="0xe8" unicode="ố"/>
+                    <map legacy="0xe9" unicode="ộ"/>
+                    <map legacy="0xea" unicode="ờ"/>
+                    <map legacy="0xeb" unicode="ở"/>
+                    <map legacy="0xec" unicode="ỡ"/>
+                    <map legacy="0xed" unicode="ớ"/>
+                    <map legacy="0xee" unicode="ợ"/>
+                    <map legacy="0xef" unicode="ù"/>
+                    <map legacy="0xf1" unicode="ủ"/>
+                    <map legacy="0xf2" unicode="ũ"/>
+                    <map legacy="0xf3" unicode="ú"/>
+                    <map legacy="0xf4" unicode="ụ"/>
+                    <map legacy="0xf5" unicode="ừ"/>
+                    <map legacy="0xf6" unicode="ử"/>
+                    <map legacy="0xf7" unicode="ữ"/>
+                    <map legacy="0xf8" unicode="ứ"/>
+                    <map legacy="0xf9" unicode="ự"/>
+                    <map legacy="0xfa" unicode="ỳ"/>
+                    <map legacy="0xfb" unicode="ỷ"/>
+                    <map legacy="0xfc" unicode="ỹ"/>
+                    <map legacy="0xfd" unicode="ý"/>
+                    <map legacy="0xfe" unicode="ỵ"/>
+                </global>
+                <tounicode>
+                    <map legacy="0xce" unicode="ẻ"/>
+                    <map legacy="0xcf" unicode="ẽ"/>
+                    <map legacy="0xd1" unicode="ẹ"/>
+                    <map legacy="0xe0" unicode="à"/>
+                </tounicode>
+            </maps>
+        </font>
     </fonts>
 </fontdata>
