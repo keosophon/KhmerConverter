@@ -52,6 +52,14 @@ class TestFontData(unittest.TestCase):
         self.assertEqual(data[0][0][unichr(0x201d)], chr(0x7d))
         self.assertEqual(data[0][0][u'«'], chr(0x7b))
         self.assertEqual(data[0][0][u'»'], chr(0x7d))
+        self.assertEqual(data[0][0][u'ឲ'], chr(0xbb))
+
+##    def testDumpLimon(self):
+##        data = self.dataClass.unicodeData("limon")
+##        print "data: ", data[1]
+##        print "data0: ", data[0][0]
+##        print "data1: ", data[0][1]
+##        print "data2: ", data[0][2]
 
 if __name__ == '__main__':
     unittest.main()
