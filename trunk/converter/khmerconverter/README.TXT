@@ -2,7 +2,7 @@
 	Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 				www.khmeros.info
 
-Version:	1.2	Date:	21.December.2006
+Version:	1.3	Date:	30 January 2007
 
 Developed by:
 	Hok Kakada (hokkakada@khmeros.info)
@@ -62,3 +62,9 @@ OPTION:
                          force the program to use specific size for khmer font
   -t, --time
                          print the needed time for the conversion
+                         
+IMPORTANT NOTE:
+In OpenOffice.org Writer, if you are not able to convert that odt file,  for example the result is still in the same font or the rendering of the converted file is not correct. you can try by:
+ 1. Select the section where is not correct, then choose default formatting. There are two ways: (a). right clicking. (b). format menu - default formatting
+  2. Change the selection to your desire font, for instance limons1
+  3. Save and try to convert again.
