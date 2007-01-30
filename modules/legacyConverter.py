@@ -37,7 +37,7 @@ def converter(sin, data):
     i = 0
     end = len(sin)
     while (i < end):
-        for j in range(len(dicts)):
+        for j in range( len(dicts)-1, -1, -1):
             if (dicts[j] == None):
                 continue
             try:
@@ -46,6 +46,7 @@ def converter(sin, data):
                 break
             except KeyError:
                 continue
+
         else:
             c = sin[i]
             n = ord(c) - 0x1780
@@ -100,6 +101,17 @@ class TestConvert(unittest.TestCase):
         # remove unknown unicode character
         self.assertEqual(converter(unichr(255), self.data), '')
         self.assertEqual(converter(unichr(0x1980), self.data), '')
+    
+    def testConvertLongFirst(self):
+        # convert longer match first
+        # 123: A,1234: Z
+        # 1234 => Z... not A4
+        data = (({"0":"X"}, {"09":"M"}, {"123":"A"}, {"1234":"Z"}) , [])
+        # dictionary not in unicode range
+		# list with character replacement values
+
+        self.assertEqual(converter("1234", data), "Z")
         
+
 if __name__ == '__main__':
     unittest.main()

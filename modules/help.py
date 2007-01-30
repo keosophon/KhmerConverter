@@ -23,13 +23,14 @@ class HelpText:
     def __init__(self, parent):
         self.root = Toplevel(parent)
         self.root.title('Help')
+        self.root.wm_iconbitmap("converter.ico")
         self.help = ScrolledText (self.root, scrollbar = 'y')
         self.help.pack(fill = BOTH, expand = 1)
         self.help.text['font'] = 'serif 12'
         self.help.subwidget_list['text'].insert(END, """Khmer Converter
 
 Version: 1.3
-Date: 21 December.2006
+Date: 30 January 2007
 Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 
 This program converts plain text, OpenOffice.org Writer (odt) or HTML File from 
