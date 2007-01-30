@@ -181,7 +181,11 @@ class unicodeConvertOdt:
             return False
         
         # legacy font data's referal.
-        fontname = self.convertibleStyle[parentStyleName or styleName]
+        style = parentStyleName or styleName
+        if self.convertibleStyle.has_key(style):
+            fontname = self.convertibleStyle[style]
+        else:
+            return False
         
         sin = node.data
         try:
