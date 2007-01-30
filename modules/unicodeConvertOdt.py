@@ -177,16 +177,15 @@ class unicodeConvertOdt:
         # do also convert node.
         styleName = node.parentNode.getAttribute(u'text:style-name')
         parentStyleName = node.parentNode.parentNode.getAttribute(u'text:style-name')
-        if (not styleName in self.convertibleStyle) and (not parentStyleName in self.convertibleStyle):
-            return False
-        
-        # legacy font data's referal.
-        style = parentStyleName or styleName
-        if self.convertibleStyle.has_key(style):
-            fontname = self.convertibleStyle[style]
+        if (styleName in self.convertibleStyle):
+            style = styleName
+        elif (parentStyleName in self.convertibleStyle):
+            style = parentStyleName
         else:
             return False
         
+        # legacy font data's referal.
+        fontname = self.convertibleStyle[style]
         sin = node.data
         try:
             sin = sin.encode('cp1252')
