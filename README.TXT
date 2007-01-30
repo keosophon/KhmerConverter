@@ -1,6 +1,6 @@
-				 khmerConverter
-	Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
-				www.khmeros.info
+			 khmerConverter
+Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
+			www.khmeros.info
 
 Version:	1.3	Date:	30 January 2007
 
@@ -64,7 +64,8 @@ OPTION:
                          print the needed time for the conversion
                          
 IMPORTANT NOTE:
-In OpenOffice.org Writer, if you are not able to convert that odt file,  for example the result is still in the same font or the rendering of the converted file is not correct. you can try by:
- 1. Select the section where is not correct, then choose default formatting. There are two ways: (a). right clicking. (b). format menu - default formatting
-  2. Change the selection to your desire font, for instance limons1
+If the result of converted odt file (OpenOffice.org Writer) is not properly, there might be problems of complex formatting which break khmer clusters.
+You might have to follow these steps to solve the problem:
+  1. Select the section where is not correct, then choose default formatting: (a) "right clicking" or (b) "format menu" then "default formatting"
+  2. Change the selection to your desire font, for instance "Limon S1"
   3. Save and try to convert again.
