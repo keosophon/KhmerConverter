@@ -1,7 +1,7 @@
 #Khmer converter
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.2 (21 December 2006)
+# Version 1.3 (30 January 2007)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
@@ -244,7 +244,7 @@ mt = MimeTypes()
 
 # create the top level window/frame
 top = Tk()
-top.wm_title('Khmer Converter 1.2')
+top.wm_title('Khmer Converter 1.3')
 top.protocol("WM_DELETE_WINDOW", top.destroy)
 top.geometry("500x550+150+150")
 top.minsize(450, 480)
