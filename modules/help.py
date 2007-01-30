@@ -1,7 +1,7 @@
 # Khmer converter
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.2 (21 December 2006)
+# Version 1.3 (30 January 2007)
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
@@ -28,7 +28,7 @@ class HelpText:
         self.help.text['font'] = 'serif 12'
         self.help.subwidget_list['text'].insert(END, """Khmer Converter
 
-Version: 1.2
+Version: 1.3
 Date: 21 December.2006
 Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 
