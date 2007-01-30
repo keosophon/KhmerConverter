@@ -26,10 +26,27 @@
 # command: python setup.py
 # Requirements: distutils package and py2exe installer
 
+import glob
+import os
+import sys
 from distutils.core import setup
 import py2exe
-import sys
-sys.argv.append("py2exe")
 
-setup(console = [{"script": 'khmerconverter.py'}],
-packages = ['modules'])
+def files(folder):
+    for path in glob.glob(folder+'/*'):
+        if os.path.isfile(path):
+            yield path
+
+data_files=[
+            ('.', glob.glob(sys.prefix+'/DLLs/tix81*.dll')),
+            ('tcl/tix8.1', files(sys.prefix+'/tcl/tix8.1')),
+            ('tcl/tix8.1/bitmaps', files(sys.prefix+'/tcl/tix8.1/bitmaps')),
+            ('tcl/tix8.1/pref', files(sys.prefix+'/tcl/tix8.1/pref')),
+           ]
+
+setup(
+      script_args=['py2exe'],
+      windows=[{"script": 'khmerconverter.py'}],
+      data_files=data_files,
+      packages = ['modules']
+     )
