@@ -485,7 +485,7 @@
                     <map legacy="0x2e" unicode="៕"/>
                     <map legacy="0x5b" unicode="ឲ&coeng;យ"/>
                     <map legacy="0xb4" unicode="ខ&coeng;ញ&mark;ុំ"/>
-                    <map legacy="0xbb" unicode="ឲ"/><!--this mapping is not working-->
+                    <map legacy="0x5b" unicode="ឲ"/>   <!--this mapping is not working-->
                     <map legacy="0xfe" unicode="&coeng;ដ"/>
                 </fromunicode>
             </maps>
