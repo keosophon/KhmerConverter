@@ -46,7 +46,7 @@ data_files=[
 
 setup(
       script_args=['py2exe'],
-      windows=[{"script": 'khmerconverter.py'}],
       data_files=data_files,
+      windows=[{"script": "khmerconverter.py", "icon_resources": [(1, "converter.ico")]}],
       packages = ['modules']
      )
