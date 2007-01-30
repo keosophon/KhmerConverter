@@ -117,48 +117,72 @@ class unicodeConvertOdt:
     
     def replaceFont(self, node):
         """look for node which has "style:font-name" attribute and change its value to fontName."""
-        try:
-            fontName = node.getAttribute('style:font-name')
-            if (fontName):
+        if (not hasattr(node, "getAttribute")):
+            return
+        fontName = node.getAttribute('style:font-name')
+        fontType = None
+        if (fontName):
+            try:
                 fontType = self.fd.typeForFontname(fontName)
-                # add name to convertible list
-                self.convertibleStyle[unicode(node.parentNode.getAttribute('style:name'))] = fontType
-                node.removeAttribute('style:font-name')
-                node.setAttribute('style:font-name-complex', self.outputFont)
-                if (self.outputFontSize):
-                    node.setAttribute('style:font-size-complex', self.outputFontSize)
-        except:
-            pass
+            except:
+                pass
+        if (fontType and hasattr(node.parentNode, "getAttribute")):
+            # add name to convertible list
+            self.convertibleStyle[unicode(node.parentNode.getAttribute('style:name'))] = fontType
+            node.removeAttribute('style:font-name')
+            node.setAttribute('style:font-name-complex', self.outputFont)
+            if (self.outputFontSize):
+                node.setAttribute('style:font-size-complex', self.outputFontSize)
+        
+        styleName = node.getAttribute('style:name')
+        if (styleName):
+            # if node's parent style is also convertible, node is also convertible.
+            # search in child if child also has style:font-name (which will override parent)
+            # then will not add to convertible list.
+            if node.hasChildNodes():
+                for child in node.childNodes:
+                    if (child.hasAttribute('style:font-name')) and (hasattr(child, "getAttribute")):
+                        fontName = child.getAttribute('style:font-name')
+                        try:
+                            fontType = self.fd.typeForFontname(fontName)
+                        except:
+                            return
             
-        try:
-            styleName = node.getAttribute('style:name')
-            if (styleName):
-                # if node's parent style is also convertible, node is also convertible.
-                if (node.hasAttribute('style:parent-style-name')):
-                    ParentStyleName = node.getAttribute('style:parent-style-name')
-                    if self.convertibleStyle.has_key(ParentStyleName):
-                        # add to convertible style
-                        self.convertibleStyle[styleName] = self.convertibleStyle[ParentStyleName]
+            parentStyleName = node.getAttribute('style:parent-style-name')
+            if self.convertibleStyle.has_key(parentStyleName):
+                # add to convertible style
+                self.convertibleStyle[styleName] = self.convertibleStyle[parentStyleName]
+            try:
                 fontType = self.fd.typeForFontname(styleName)
-                self.convertibleStyle[styleName] = fontType
-                node.setAttribute('style:name', self.outputFont)
-                node.setAttribute('svg:font-family', self.outputFont)
-        except:
-            pass
+            except:
+                return
+            self.convertibleStyle[styleName] = fontType
+            node.setAttribute('style:name', self.outputFont)
+            node.setAttribute('svg:font-family', self.outputFont)
 
     def convertIfLegacy(self, node):
         """look the node for information of legacy font and convert to unicode, otherwise return False.
         @param node: node to look to and convert if necessary."""
+        
         if (not node.nodeValue):
             return False
-        try:
-            stylename = node.parentNode.getAttribute(u'text:style-name')
-            if (not stylename in self.convertibleStyle):
-                return False
-        except:
+        
+        if (not (hasattr(node, "parentNode") or 
+                 hasattr(node.parentNode, "getAttribute") or
+                 hasattr(node.parentNode, "parentNode") or
+                 hasattr(node.parentNode.parentNode, "getAttribute"))):
             return False
+        
+        # if node don have font specified, but it's under parent that in convertible list
+        # do also convert node.
+        styleName = node.parentNode.getAttribute(u'text:style-name')
+        parentStyleName = node.parentNode.parentNode.getAttribute(u'text:style-name')
+        if (not styleName in self.convertibleStyle) and (not parentStyleName in self.convertibleStyle):
+            return False
+        
         # legacy font data's referal.
-        fontname = self.convertibleStyle[stylename]
+        fontname = self.convertibleStyle[parentStyleName or styleName]
+        
         sin = node.data
         try:
             sin = sin.encode('cp1252')
@@ -185,7 +209,7 @@ class unicodeConvertOdt:
             sin = unicodeReorder.reorder(sin)
         newtext = self.xmldoc.createTextNode(sin) # create text of Node
         node.parentNode.replaceChild(newtext, node)
-
+        
 
 class TestConvertOdt(unittest.TestCase):
     def testSameFile(self):
@@ -197,8 +221,7 @@ class TestConvertOdt(unittest.TestCase):
         self.assertRaises(IOError, unicodeConvertOdt().convertOdtFile, '!@#$%^&', 'file2')
         
     def testModifyStyle(self):
-        xmldata = """<?xml version="1.0" encoding="utf-8"?>
-<office:document-styles office:version="1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"><office:font-face-decls><style:font-face style:font-pitch="variable" style:name="Limon S1" svg:font-family="Limon S1"/></office:font-face-decls><office:styles><style:style style:family="text" style:name="Khmer" style:parent-style-name="Default_20_Paragraph_20_Font"><style:text-properties fo:font-size="16pt" style:font-name="Limon S1" style:font-size-asian="16pt"/></style:style></office:styles><office:automatic-styles/><office:master-styles/></office:document-styles>"""
+        xmldata = """"""
         modxmldata = xmldata.replace("Limon S1", "Khmer OS")
         modxmldata = modxmldata.replace("style:font-name", "style:font-name-complex")
         self.assertEqual(unicodeConvertOdt().processStyle(xmldata), modxmldata)
