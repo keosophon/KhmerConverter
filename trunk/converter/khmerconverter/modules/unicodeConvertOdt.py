@@ -224,9 +224,10 @@ class TestConvertOdt(unittest.TestCase):
         self.assertRaises(IOError, unicodeConvertOdt().convertOdtFile, '!@#$%^&', 'file2')
         
     def testModifyStyle(self):
-        xmldata = """"""
+        xmldata = """<?xml version="1.0" encoding="utf-8"?><office:document-styles office:version="1.0" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"><office:font-face-decls><style:font-face style:font-pitch="variable" style:name="Limon S1" svg:font-family="Limon S1"/></office:font-face-decls></office:document-styles>"""
+
+
         modxmldata = xmldata.replace("Limon S1", "Khmer OS")
-        modxmldata = modxmldata.replace("style:font-name", "style:font-name-complex")
         self.assertEqual(unicodeConvertOdt().processStyle(xmldata), modxmldata)
 
 if __name__ == '__main__':
