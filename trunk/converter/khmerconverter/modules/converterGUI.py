@@ -245,7 +245,8 @@ mt = MimeTypes()
 # create the top level window/frame
 top = Tk()
 top.wm_title('Khmer Converter 1.3')
-top.wm_iconbitmap("converter.ico")
+if sys.platform[:6] in "windows":
+    top.wm_iconbitmap("converter.ico")
 top.protocol("WM_DELETE_WINDOW", top.destroy)
 top.geometry("500x550+150+150")
 top.minsize(450, 480)

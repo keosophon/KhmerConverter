@@ -18,12 +18,14 @@
 #
 # This module create a class for displaying help text
 from Tix import *
+import sys
 class HelpText:
 
     def __init__(self, parent):
         self.root = Toplevel(parent)
         self.root.title('Help')
-        self.root.wm_iconbitmap("converter.ico")
+        if sys.platform[:6] in "windows":
+            self.root.wm_iconbitmap("converter.ico")
         self.help = ScrolledText (self.root, scrollbar = 'y')
         self.help.pack(fill = BOTH, expand = 1)
         self.help.text['font'] = 'serif 12'
