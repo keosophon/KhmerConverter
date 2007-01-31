@@ -24,7 +24,7 @@ class HelpText:
     def __init__(self, parent):
         self.root = Toplevel(parent)
         self.root.title('Help')
-        if sys.platform[:6] in "windows":
+        if sys.platform[:4] in "win32":
             self.root.wm_iconbitmap("converter.ico")
         self.help = ScrolledText (self.root, scrollbar = 'y')
         self.help.pack(fill = BOTH, expand = 1)
