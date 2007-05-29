@@ -306,6 +306,7 @@ chkSizeVar = IntVar()
 chkSize = Checkbutton(frmSize, text='Override size', variable=chkSizeVar, command=evChkSize, font=FONTSIZE)
 fontSizeVar = IntVar()
 spnSize = Control(frmSize, label='Size:', min=1, max=100, variable=fontSizeVar, value=DEFAULTFONTSIZE)
+spnSize.tk_focusFollowsMouse()
 spnSize.label.configure(font=FONTSIZE)
 spnSize.entry.configure(font=FONTSIZE, justify=RIGHT)
 
