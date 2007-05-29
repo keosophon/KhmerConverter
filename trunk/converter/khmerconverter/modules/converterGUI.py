@@ -353,7 +353,7 @@ for font in fd.listFontTypes():
     for fontName in fd.listFontNamesForType(font):
         legacyFontList.append("  " + fontName)
 
-unicodeFontList = ['Khmer OS', 'Khmer OS Bokor', 'Khmer OS Fasthand', 'Khmer OS Freehand','Khmer OS Metal Chrieng', 'Khmer OS Moul', 'Khmer OS System', 'Khmer OS Battambang']
+unicodeFontList = ['Khmer OS', 'Khmer OS Bokor', 'Khmer OS Battambang', 'Khmer OS Content', 'Khmer OS Fasthand', 'Khmer OS Freehand','Khmer OS Metal Chrieng', 'Khmer OS Muol', 'Khmer OS Muol Light', 'Khmer OS Muol Pali', 'Khmer OS SiemReap', 'Khmer OS System']
 encodingList = fd.listEncodingTypes()
 documentList = [TYPETEXT, TYPEODT, TYPEHTML]
 
