@@ -4,8 +4,6 @@
 # Khmer Unicode to Khmer Legacy fonts Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.3 (30 January 2007)
-#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
 # as published by the Free Software Foundation; either version 2.1
@@ -52,7 +50,7 @@ class TestFontData(unittest.TestCase):
         self.assertEqual(data[0][0][unichr(0x201d)], chr(0x7d))
         self.assertEqual(data[0][0][u'«'], chr(0x7b))
         self.assertEqual(data[0][0][u'»'], chr(0x7d))
-        self.assertEqual(data[0][0][u'ឲ'], chr(0xbb))
+        self.assertEqual(data[0][0][u'ឲ'], chr(0x5b))
 
 ##    def testDumpLimon(self):
 ##        data = self.dataClass.unicodeData("limon")

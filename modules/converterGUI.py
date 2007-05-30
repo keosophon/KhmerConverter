@@ -1,8 +1,6 @@
 #Khmer converter
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.3 (30 January 2007)
-#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
 # as published by the Free Software Foundation; either version 2.1
@@ -24,6 +22,7 @@ import tkMessageBox
 import FontDataXML
 import os
 import tkFont
+import __version__
 
 # Python 2.3 only has sets as a module
 try:
@@ -244,7 +243,8 @@ mt = MimeTypes()
 
 # create the top level window/frame
 top = Tk()
-top.wm_title('Khmer Converter 1.3')
+title = 'Khmer Converter' + __version__.ver
+top.wm_title(title)
 if sys.platform[:4] in "win32":
     top.wm_iconbitmap("converter.ico")
 top.protocol("WM_DELETE_WINDOW", top.destroy)
