@@ -4,8 +4,6 @@
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
 # (c) 2006 The WordForge Foundation, all rights reserved.
 #
-# Version 1.3 (30 January 2007)
-#
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
 # as published by the Free Software Foundation; either version 2.1
@@ -24,6 +22,7 @@
 
 from optparse import OptionParser
 from modules import FontDataXML
+import __version__
 import sys
 import os
 
@@ -40,7 +39,7 @@ Currently supported file formats are:
     OpenOffice writer document
     HTML"""
 
-strVersion = """%prog Version 1.3\n
+strVersion = "%prog Version" + __version__.ver + """ \n
 Copyright (C) 2006 The WordForge Foundation. www.khmeros.info.
 This is free software. You may redistribute copies of it under the terms of
 the GNU Lesser General Public License <http://www.gnu.org/licenses/lgpl.html>.
