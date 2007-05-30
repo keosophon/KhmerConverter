@@ -2,7 +2,7 @@
 Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
 			www.khmeros.info
 
-Version:	1.3	Date:	30 January 2007
+Version:	1.4	Date:	1 June 2007
 
 Developed by:
 	Hok Kakada (hokkakada@khmeros.info)
@@ -69,3 +69,9 @@ You might have to follow these steps to solve the problem:
   1. Select the section where is not correct, then choose default formatting: (a) "right clicking" or (b) "format menu" then "default formatting"
   2. Change the selection to your desire font, for instance "Limon S1"
   3. Save and try to convert again.
+
+IMPORTANT CHANGES:
+=================
+
+1. Added more KhmerOS fonts: KhmerOScontent.ttf, KhmerOSmuollight.ttf, KhmerOSmuolpali.ttf, KhmerOSsiemreap.ttf, 
+2. Fixed the bug that when we type in the disired size in spinsize box then click on convert immediately, the size didn't change.

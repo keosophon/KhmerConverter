@@ -1,7 +1,6 @@
 - file filters for dialogs
 - include FK2 (font differ from FK1)
 - add non-breaking-space with some more characters (khan)
-- Bug: The last change in each widget is not used when we click on convert.
 -ឲ in Limon is mapped to wrong character
 
 
