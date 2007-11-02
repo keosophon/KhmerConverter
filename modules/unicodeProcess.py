@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf8 -*-
+﻿#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # Khmer Legacy fonts to Khmer Unicode Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
@@ -34,7 +34,7 @@ def process(sin, data):
 
     if (type(sin) == unicode):
         raise TypeError("Input must not be Unicode string.")
-
+        
     condenseData = data[0] # dictionary with character combinations and replacements
     replaceData = data[1] # list with character replacement values
     sout = u''
