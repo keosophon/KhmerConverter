@@ -1334,6 +1334,10 @@
                     <map legacy="0xe7" unicode="&mark;&coeng;រ"/>
                     <map legacy="0xf8" unicode="រ&coeng;ដិ៍"/>
                     <map legacy="0xd6" unicode="ខ&coeng;ញ&mark;ុំ"/>
+                    <map legacy="0xaa" unicode="&mark;៉"/>
+                    <map legacy="0xaa" unicode="&mark;៊"/>
+                    <map legacy="0xab" unicode="&mark;&mark;៊"/>
+                    <map legacy="0xab" unicode="&mark;&mark;៉"/>
                 </fromunicode>
             </maps>
         </font>
