@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf8 -*-
+﻿#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # Khmer Legacy fonts to Khmer Unicode Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
