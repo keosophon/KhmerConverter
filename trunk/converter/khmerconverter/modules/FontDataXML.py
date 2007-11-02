@@ -161,8 +161,8 @@ class FontData:
             return sin """
         if (self.canDecode(encoding) and encoding != 'cp1252'):
             try:                
-                sin = sin.decode(encoding)
-                sin = sin.encode('cp1252')
+                sin = sin.decode(encoding, 'ignore')
+                sin = sin.encode('cp1252', 'ignore')
             except UnicodeEncodeError:
                     raise TypeError("Codecs Error")
         return sin
