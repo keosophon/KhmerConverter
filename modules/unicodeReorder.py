@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf8 -*-
+﻿#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
 # (c) 2006 The WordForge Foundation, all rights reserved.
@@ -101,7 +101,7 @@ KHMERCHAR = [
     BASE,               #
     BASE,               #
     BASE + TRII,        # ស
-    BASE,               # ហ     0x17A0
+    BASE + TRII,        # ហ     0x17A0
     BASE,               # ឡ
     BASE + TRII,        # អ
     BASE,               # អ
@@ -388,8 +388,10 @@ class TestReordering(unittest.TestCase):
         self.assertEqual(reorder(u'្រកដាស្របដាល់កណ្ដាល'), u'ក្រដាសប្រដាល់កណ្ដាល')
         # correct leading sra E if there are allow sra (e.g. sra A)
         self.assertEqual(reorder(u'បេង្គាល ខាងេលី េសៀវេភៅ'), u'បង្គោល ខាងលើ សៀវភៅ')
-        # correct muus of triisap
+        # correct muus or triisap
         self.assertEqual(reorder(u'សីុបុីអុី'), u'ស៊ីប៉ីអ៊ី')
+        # correct muus or triisap 2
+        self.assertEqual(reorder(u'សុីបុីអុី'), u'ស៊ីប៉ីអ៊ី')
         # correct use of shifter on coeng SA
         self.assertEqual(reorder(u'ន្សីុ'), u'ន្ស៊ី')
         # sra E is at the right place
