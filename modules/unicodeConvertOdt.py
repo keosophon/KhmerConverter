@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 # Khmer Legacy fonts to Khmer Unicode Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
@@ -175,8 +175,11 @@ class unicodeConvertOdt:
         # do also convert node.
         styleName = node.parentNode.getAttribute(u'text:style-name')
         parentStyleName = node.parentNode.parentNode.getAttribute(u'text:style-name')
+        
         if (styleName in self.convertibleStyle):
             style = styleName
+        elif (styleName not in self.convertibleStyle):
+            return False
         elif (parentStyleName in self.convertibleStyle):
             style = parentStyleName
         else:
@@ -227,6 +230,7 @@ class TestConvertOdt(unittest.TestCase):
 
         modxmldata = xmldata.replace("Limon S1", "Khmer OS")
         self.assertEqual(unicodeConvertOdt().processStyle(xmldata), modxmldata)
+    
 
 if __name__ == '__main__':
     unittest.main()

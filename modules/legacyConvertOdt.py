@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 # Khmer Unicode to Legacy fonts Conversion
 # (c) 2006 The WordForge Foundation, all rights reserved.
@@ -32,7 +32,8 @@ ZWSP = unichr(0x200B)
 ZWNJ = unichr(0x200C)
 ZWJ = unichr(0x200D)
 INKHMER = SP + ZWSP + ZWNJ + ZWJ
-STARTKHMER = u"«»" + ZWNJ + ZWSP + ZWJ
+##STARTKHMER = u"«»" + ZWNJ + ZWSP + ZWJ
+STARTKHMER = ZWNJ + ZWSP + ZWJ
 MINUNIC = 0x1780
 MAXUNIC = 0x17FF
 KHMERSTYLE = 'kc-1.0-kstyle'
