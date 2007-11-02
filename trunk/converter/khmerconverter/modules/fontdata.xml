@@ -1266,7 +1266,7 @@
                     <map legacy="0xd3" unicode="ឮ"/>
                     <map legacy="0xd4" unicode="ឯ"/>
                     <map legacy="0xd5" unicode="ឰ"/>
-                    <map legacy="0xd6" unicode="ខ&coeng;ញ&mark;ុំ"/>
+                    <map legacy="0xd6" unicode="ខ&coeng;ញុំ"/>
                     <!-- <map legacy="0xd8" unicode=""/>
                     <map legacy="0xd9" unicode=""/> -->
                     <map legacy="0xda" unicode="©"/>
@@ -1333,6 +1333,7 @@
                     <map legacy="0xc6" unicode="&mark;ញ"/>
                     <map legacy="0xe7" unicode="&mark;&coeng;រ"/>
                     <map legacy="0xf8" unicode="រ&coeng;ដិ៍"/>
+                    <map legacy="0xd6" unicode="ខ&coeng;ញ&mark;ុំ"/>
                 </fromunicode>
             </maps>
         </font>
