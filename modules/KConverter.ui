@@ -1,0 +1,493 @@
+<ui version="4.0" >
+ <class>kconvert</class>
+ <widget class="QMainWindow" name="kconvert" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Khmer Converter</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset>../images/converter.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" colspan="3" >
+     <widget class="QTabWidget" name="tabWidget" >
+      <property name="currentIndex" >
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab1" >
+       <attribute name="title" >
+        <string>Legacy to Unicode</string>
+       </attribute>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="0" >
+         <widget class="QGroupBox" name="groupBox_2" >
+          <property name="title" >
+           <string>Output File</string>
+          </property>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>9</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item row="1" column="1" colspan="4" >
+            <widget class="QComboBox" name="cmbFontOutputL" />
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="label_10" >
+             <property name="text" >
+              <string>Font:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="4" >
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="lineOutputL" />
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnBrowseOutL" >
+               <property name="text" >
+                <string/>
+               </property>
+               <property name="icon" >
+                <iconset>../images/open.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="label_9" >
+             <property name="text" >
+              <string>Filename:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1" >
+            <widget class="QCheckBox" name="chbOverrideSizeL" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+             <property name="text" >
+              <string>Override size</string>
+             </property>
+             <property name="checked" >
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3" >
+            <widget class="QLabel" name="lblSizeL" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+             <property name="text" >
+              <string>Size:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4" >
+            <widget class="QSpinBox" name="spinBoxSizeL" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" >
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0" >
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0" >
+         <widget class="QGroupBox" name="groupBox" >
+          <property name="title" >
+           <string>Input File</string>
+          </property>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>9</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item row="0" column="1" >
+            <widget class="QLineEdit" name="lineInputL" />
+           </item>
+           <item row="1" column="1" colspan="2" >
+            <widget class="QComboBox" name="cmbDocTypeL" />
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="label_2" >
+             <property name="text" >
+              <string>Document type:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="label" >
+             <property name="text" >
+              <string>Filename:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" >
+            <widget class="QLabel" name="label_3" >
+             <property name="text" >
+              <string>Font:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" >
+            <widget class="QLabel" name="label_4" >
+             <property name="text" >
+              <string>Encoding:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" >
+            <widget class="QPushButton" name="btnBrowseInL" >
+             <property name="text" >
+              <string/>
+             </property>
+             <property name="icon" >
+              <iconset>../images/open.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2" >
+            <widget class="QComboBox" name="cmbEncodingL" />
+           </item>
+           <item row="2" column="1" colspan="2" >
+            <widget class="QComboBox" name="cmbFontInputL" />
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab" >
+       <attribute name="title" >
+        <string>Unicode to Legacy</string>
+       </attribute>
+       <layout class="QGridLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item row="1" column="0" >
+         <widget class="QGroupBox" name="groupBox_4" >
+          <property name="title" >
+           <string>Output File</string>
+          </property>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>9</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item row="1" column="1" colspan="4" >
+            <widget class="QComboBox" name="cmbFontOutputU" />
+           </item>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="label_14" >
+             <property name="text" >
+              <string>Filename:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="4" >
+            <layout class="QHBoxLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="lineOutputU" />
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnBrowseOutU" >
+               <property name="text" >
+                <string/>
+               </property>
+               <property name="icon" >
+                <iconset>../images/open.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="label_15" >
+             <property name="text" >
+              <string>Font:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1" >
+            <widget class="QCheckBox" name="chbOverrideSizeU" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+             <property name="text" >
+              <string>Override size</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" >
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="3" >
+            <widget class="QLabel" name="lblSizeU" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+             <property name="text" >
+              <string>Size:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4" >
+            <widget class="QSpinBox" name="spinBoxSizeU" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" >
+         <widget class="QGroupBox" name="groupBox_3" >
+          <property name="title" >
+           <string>Input File</string>
+          </property>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>9</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="label_6" >
+             <property name="text" >
+              <string>Filename:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" >
+            <widget class="QPushButton" name="btnBrowseInU" >
+             <property name="text" >
+              <string/>
+             </property>
+             <property name="icon" >
+              <iconset>../images/open.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="label_5" >
+             <property name="text" >
+              <string>Document type:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2" >
+            <widget class="QComboBox" name="cmbDocTypeU" />
+           </item>
+           <item row="0" column="1" >
+            <widget class="QLineEdit" name="lineInputU" />
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0" >
+         <spacer>
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" >
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="1" >
+     <widget class="QPushButton" name="btnReset" >
+      <property name="text" >
+       <string>&amp;Reset</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2" >
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0" >
+     <widget class="QPushButton" name="btnConvert" >
+      <property name="text" >
+       <string>&amp;Convert</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>462</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Help" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAboutKConverter" />
+    <addaction name="actionAboutQt" />
+   </widget>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionQuit" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_Help" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <action name="actionQuit" >
+   <property name="icon" >
+    <iconset>../images/exit.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionLegacy_to_Unicode" >
+   <property name="text" >
+    <string>Legacy to Unicode</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionUnicode_to_Legacy" >
+   <property name="text" >
+    <string>Unicode to Legacy</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionAboutKConverter" >
+   <property name="text" >
+    <string>About Khmer Unicode</string>
+   </property>
+  </action>
+  <action name="actionAboutQt" >
+   <property name="text" >
+    <string>About Qt</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>lineInputL</tabstop>
+  <tabstop>btnBrowseInU</tabstop>
+  <tabstop>cmbDocTypeL</tabstop>
+  <tabstop>cmbFontInputL</tabstop>
+  <tabstop>cmbEncodingL</tabstop>
+  <tabstop>btnConvert</tabstop>
+  <tabstop>btnReset</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
