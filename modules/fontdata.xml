@@ -1325,7 +1325,7 @@
                     <map legacy="0xa5" unicode="&mark;ី"/>
                     <map legacy="0xa7" unicode="&mark;ឹ"/>
                     <map legacy="0xa9" unicode="&mark;ឺ"/>
-                    <map legacy="0xad" unicode="&mark;ូ"/>
+                    <map legacy="0x20;0xac" unicode="&mark;ូ"/>
                     <map legacy="0xaf" unicode="&mark;ួ"/>
                     <map legacy="0xb1" unicode="&mark;ឿ"/>
                     <map legacy="0xb3" unicode="&mark;ៀ"/>
