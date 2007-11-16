@@ -1159,6 +1159,7 @@
         <font type="kaohkong" default="Kaoh Kong" inherit="digit">
             <aliases>
                     <alias name="Kaoh Kong"/>
+                    <alias name="KSW kaoh kong"/>
             </aliases>
             <maps>
                 <global>
