@@ -88,13 +88,14 @@ if (options.listFont):
     sys.exit()
 
 if (len(sys.argv) == 1):
-    from modules import converterGUI
-    sys.exit()
+    from modules import KConvert
+    KConvert.main()
+#    sys.exit()
 
 if (argc == 0):
     sys.stderr.write("Please enter a file name or a legal option!\nUse the --help option for more info.\n")
     sys.exit()
-
+    
 inputFileName = args[0]
 if not os.path.exists(args[0]):
     sys.stderr.write(inputFileName + ' does not exist!\n')
@@ -145,7 +146,8 @@ else:
         converter.convertOdtFile(inputFileName, outputFileName, options.font, options.fontSize)
     elif(inputFileName.endswith('.htm') or inputFileName.endswith('.html')):
         from modules import unicodeConvertHTML
-        unicodeConvertHTML.convertHTMLFile(inputFileName, outputFileName, options.font)
+        converter = unicodeConvertHTML.unicodeConvertHTML()
+        converter.unicodeConvertHTML.convertHTMLFile(inputFileName, outputFileName, options.font)
     else:
         from modules import unicodeConvertText
         unicodeConvertText.convertTxtFile(inputFileName, outputFileName, options.font, options.encoding)
