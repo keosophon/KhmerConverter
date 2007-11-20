@@ -88,9 +88,17 @@ if (options.listFont):
     sys.exit()
 
 if (len(sys.argv) == 1):
-    from modules import KConvert
-    KConvert.main()
-#    sys.exit()
+    
+    try:
+        # qt
+        from PyQt4 import QtGui
+        from modules import KConvert
+        KConvert.main()
+        sys.exit()
+    except ImportError:
+        # tix
+        from modules import converterGUI
+        sys.exit()
 
 if (argc == 0):
     sys.stderr.write("Please enter a file name or a legal option!\nUse the --help option for more info.\n")
