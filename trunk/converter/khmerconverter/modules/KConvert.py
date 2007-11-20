@@ -50,9 +50,14 @@ class Kconvert(QtGui.QMainWindow):
         # legacy to Unicode --  signal for browsing folder
         self.connect(self.ui.btnBrowseInL, QtCore.SIGNAL("clicked()"), self.openDialog)
         self.connect(self.ui.btnBrowseOutL, QtCore.SIGNAL("clicked()"), self.saveDialog)
+        self.connect(self.ui.cmbDocTypeL, QtCore.SIGNAL("currentIndexChanged(QString)"), self.docTypeChangedL)
+        self.connect(self.ui.cmbDocTypeU, QtCore.SIGNAL("currentIndexChanged(QString)"), self.docTypeChangedU)
         
         # add items into combo box doctType for legacy
-        self.docTypes = ["OpenOffice.org Writer (*.odt)", "Plain Text", "Web page, HTML"]
+        self.typeOdt = "OpenOffice.org Writer (*.odt)"
+        self.typeText = "Plain Text"
+        self.typeHtml = "Web page, HTML"
+        self.docTypes = [self.typeOdt, self.typeText, self.typeHtml]
         for doctType in self.docTypes:
             self.ui.cmbDocTypeL.addItem(self.tr(doctType))
             
@@ -67,14 +72,8 @@ class Kconvert(QtGui.QMainWindow):
 
         for i in self.unicodeFontList:
             self.ui.cmbFontOutputL.addItem(i)
-            
-            # get index for khmer os
-            INDEXKHMEROS = 0
-            for i in range(len(self.unicodeFontList)):
-                if (self.unicodeFontList[i] == 'Khmer OS'):
-                    INDEXKHMEROS = i
-                    break
-            self.ui.cmbFontOutputL.setCurrentIndex(INDEXKHMEROS)
+         
+        self.defaultUniFont()
         
         # add items into combo box ecoding for legacy
         self.encodings = {"Plain Text (cp1252)":'cp1252',  "Plain Text (latin-1/iso-8859-1)":'iso-8859-1', "Unicode (utf-8)":'utf-8'}
@@ -94,23 +93,15 @@ class Kconvert(QtGui.QMainWindow):
             self.ui.cmbDocTypeU.addItem(self.tr(doctType))
 
         # add items into combo box legacy font for unicode
-        legacyFontList = []
+        self.legacyFontList = []
         for font in FontData().listFontTypes():
             self.ui.cmbFontOutputU.addItem(font)
-            legacyFontList.append(font)
+            self.legacyFontList.append(font)
             for fontName in FontData().listFontNamesForType(font):
                 self.ui.cmbFontOutputU.addItem("  " + fontName)
-                legacyFontList.append(fontName)
+                self.legacyFontList.append(fontName)
         
-        # get index for abc-zwsp
-        INDEXABCZWSP = 0
-        for i in range(len(legacyFontList)):
-            if (legacyFontList[i] == 'abc-zwsp'):
-                INDEXABCZWSP = i
-                break
-        
-        self.ui.cmbFontOutputU.setCurrentIndex(INDEXABCZWSP)
-
+        self.defaultLegFont()
                 
         self.connect(self.ui.lineInputU, QtCore.SIGNAL("textChanged(QString)"), self.detectDocType)
         self.connect(self.ui.chbOverrideSizeU, QtCore.SIGNAL("stateChanged(int)"), self.toggleSize)
@@ -132,6 +123,25 @@ class Kconvert(QtGui.QMainWindow):
         self.connect(self.ui.btnConvert, QtCore.SIGNAL("clicked()"), self.convert)
         self.connect(self.ui.btnReset, QtCore.SIGNAL("clicked()"), self.defaultValue)
     
+    def defaultUniFont(self):   
+        # get index for khmeros
+        INDEXKHMEROS = 0
+        for i in range(len(self.unicodeFontList)):
+            if (self.unicodeFontList[i] == 'Khmer OS'):
+                INDEXKHMEROS = i
+                break
+        self.ui.cmbFontOutputL.setCurrentIndex(INDEXKHMEROS)
+    
+    def defaultLegFont(self):
+        # get index for abc-zwsp
+        INDEXABCZWSP = 0
+        for i in range(len(self.legacyFontList)):
+            if (self.legacyFontList[i] == 'abc-zwsp'):
+                INDEXABCZWSP = i
+                break
+        self.ui.cmbFontOutputU.setCurrentIndex(INDEXABCZWSP)
+        self.ui.cmbFontInputL.setCurrentIndex(INDEXABCZWSP)
+        
     def tabChanged(self, curIndex):
         """
         Dectect which tab is active.
@@ -145,23 +155,44 @@ class Kconvert(QtGui.QMainWindow):
         """
         Set default view and directory
         """
-        self.ui.cmbFontOutputL.setEnabled(False)
-        self.ui.chbOverrideSizeL.setEnabled(False)
+        
+        self.ui.lineInputL.setText("")
+        self.ui.lineInputU.setText("")
+        self.ui.lineOutputL.setText("")
+        self.ui.lineOutputU.setText("")
+        
+        self.defaultUniFont()
+        self.defaultLegFont()
+        self.ui.cmbEncodingL.setCurrentIndex(0)
+        self.ui.cmbDocTypeL.setCurrentIndex(0)
+        self.ui.cmbDocTypeU.setCurrentIndex(0)
         self.ui.chbOverrideSizeL.setChecked(False)
-        self.ui.lblSizeL.setEnabled(False)
-        self.ui.spinBoxSizeL.setEnabled(False)
+        self.ui.chbOverrideSizeU.setChecked(False)
         self.ui.spinBoxSizeL.setValue(11)
         self.ui.spinBoxSizeU.setValue(20)
-        self.ui.btnConvert.setEnabled(False)
-        self.ui.btnReset.setEnabled(False)
-        self.ui.lineOutputL.setEnabled(False)
-        self.ui.lineOutputU.setEnabled(False)
+        
         
         # default value for directory for file selection dialog
         self.directory = self.settings.value("workingDir").toString()
         if (not self.directory) or (not os.path.exists(self.directory)):
             self.directory = QtCore.QDir.homePath()
-         
+    
+    def docTypeChangedL(self, text):
+        if (text == self.typeOdt):
+            self.ui.chbOverrideSizeL.setEnabled(True)
+            self.ui.cmbFontInputL.setEnabled(False)
+            self.ui.cmbEncodingL.setEnabled(False)
+        else:
+            self.ui.chbOverrideSizeL.setEnabled(False)
+            self.ui.cmbFontInputL.setEnabled(True)
+            self.ui.cmbEncodingL.setEnabled(True)
+    
+    def docTypeChangedU(self, text):
+        if (text == self.typeOdt):
+            self.ui.chbOverrideSizeU.setEnabled(True)
+        else:
+            self.ui.chbOverrideSizeU.setEnabled(False)
+    
     def openDialog(self):
         """
         Open an open file selection dialog
@@ -177,8 +208,6 @@ class Kconvert(QtGui.QMainWindow):
                 self.setPath(filename, self.ui.lineInputL, self.ui.lineOutputL)
             else:
                 self.setPath(filename, self.ui.lineInputU, self.ui.lineOutputU)
-            self.ui.btnConvert.setEnabled(True)
-            self.ui.btnReset.setEnabled(True)
             return True
             
     def setPath(self, filename, objIn, objOut):
@@ -254,7 +283,8 @@ class Kconvert(QtGui.QMainWindow):
             else:
                 obj.setCurrentIndex(1)
                 fileExtension = ".txt"
-        self.checkStatus(fileExtension)
+        else:
+            fileExtension = ".txt"
         self.originExt = fileExtension
 
     def detectDocType(self, filename):
@@ -265,65 +295,7 @@ class Kconvert(QtGui.QMainWindow):
             self.setDocType(filename, self.ui.cmbDocTypeL)
         else:
             self.setDocType(filename, self.ui.cmbDocTypeU)
-        
-    def checkStatus(self, fileExtension):
-        """
-        Set state to each control based on the direction and input file extension.
-        """
-        if (self.tab == "Leg"):
-            if (fileExtension == ".txt"):
-                #inputL
-                self.ui.cmbDocTypeL.setCurrentIndex(1)
-                self.ui.cmbFontInputL.setEnabled(True)
-                self.ui.cmbEncodingL.setEnabled(True)
-                #outputL
-                self.ui.cmbFontOutputL.setEnabled(False)
-                self.ui.chbOverrideSizeL.setEnabled(False)
-                self.ui.lblSizeL.setEnabled(False)
-                self.ui.spinBoxSizeL.setEnabled(False)
-            if (fileExtension == ".odt"):
-                #inputL
-                self.ui.cmbDocTypeL.setCurrentIndex(0)
-                self.ui.cmbFontInputL.setEnabled(False)
-                self.ui.cmbEncodingL.setEnabled(False)
-                #outputL
-                self.ui.cmbFontOutputL.setEnabled(True)
-                self.ui.chbOverrideSizeL.setEnabled(True)
-                self.ui.lblSizeL.setEnabled(False)
-                self.ui.spinBoxSizeL.setEnabled(False)
-            if (fileExtension == ".htm") or (fileExtension == ".html"):
-                #inputL
-                self.ui.cmbDocTypeL.setCurrentIndex(2)
-                self.ui.cmbFontInputL.setEnabled(True)
-                self.ui.cmbEncodingL.setEnabled(False)
-                #outputL
-                self.ui.cmbFontOutputL.setEnabled(False)
-                self.ui.chbOverrideSizeL.setEnabled(False)
-                self.ui.lblSizeL.setEnabled(False)
-                self.ui.spinBoxSizeL.setEnabled(False)
-        else:
-            if (fileExtension == ".txt"):
-                #outputU
-                self.ui.cmbFontOutputU.setEnabled(True)
-                self.ui.chbOverrideSizeU.setEnabled(False)
-                self.ui.lblSizeU.setEnabled(False)
-                self.ui.spinBoxSizeU.setEnabled(False)
-            if (fileExtension == ".odt"):
-                #outputU
-                self.ui.cmbFontOutputU.setEnabled(True)
-                self.ui.chbOverrideSizeU.setEnabled(True)
-                self.ui.lblSizeU.setEnabled(False)
-                self.ui.spinBoxSizeU.setEnabled(False)
-            if (fileExtension == ".htm") or (fileExtension == ".html"):
-                #outputU
-                self.ui.cmbFontOutputL.setEnabled(True)
-                self.ui.chbOverrideSizeL.setEnabled(True)
-                self.ui.lblSizeL.setEnabled(True)
-                self.ui.spinBoxSizeL.setEnabled(True)
-
-        self.ui.btnConvert.setEnabled(False)
-        self.ui.btnReset.setEnabled(False)
-        
+    
     def toggleSize(self):
         """
         Enable or disable size label and spin box.
@@ -369,9 +341,9 @@ class Kconvert(QtGui.QMainWindow):
 
         # output font is priority
         if (objFontOut.isEnabled()):
-            font = str(objFontOut.currentText())
+            font = str(objFontOut.currentText()).strip()
         else:
-            font = str(objFontIn.currentText())
+            font = str(objFontIn.currentText()).strip()
 
         # set font size to zero if it is disabled
         if objSpinSize.isEnabled():
@@ -381,8 +353,6 @@ class Kconvert(QtGui.QMainWindow):
         
         inputFile = str(objLineIn.text())
         outputFile = str(objLineOut.text())
-        print "input:", type(inputFile)
-        print "output:", type(outputFile)
 
         # check if output file already exist
         if (os.path.exists(outputFile)):
@@ -393,38 +363,38 @@ class Kconvert(QtGui.QMainWindow):
             if (confirm == QtGui.QMessageBox.No):
                 return
             
-#        try:
-        if (self.tab == "Leg"):
-            if (docType == self.docTypes[0]):
-                import unicodeConvertOdt
-                converter = unicodeConvertOdt.unicodeConvertOdt()
-                converter.convertOdtFile(inputFile, outputFile, font, fontSize)
-            elif (docType == self.docTypes[2]):
-                import unicodeConvertHTML
-                unicodeConvertHTML.convertHTMLFile(inputFile, outputFile, font)
-            else:
-                import unicodeConvertText
-                unicodeConvertText.convertTxtFile(inputFile, outputFile, font, encoding)
-            
-        else:
-            if (docType == self.docTypes[0]):
-                import legacyConvertOdt
-                converter = legacyConvertOdt.legacyConvertOdt()
-                converter.convertOdtFile(inputFile, outputFile, font, fontSize)
+        try:
+            if (self.tab == "Leg"):
+                if (docType == self.docTypes[0]):
+                    import unicodeConvertOdt
+                    converter = unicodeConvertOdt.unicodeConvertOdt()
+                    converter.convertOdtFile(inputFile, outputFile, font, fontSize)
+                elif (docType == self.docTypes[2]):
+                    import unicodeConvertHTML
+                    unicodeConvertHTML.convertHTMLFile(inputFile, outputFile, font)
+                else:
+                    import unicodeConvertText
+                    unicodeConvertText.convertTxtFile(inputFile, outputFile, font, encoding)
                 
-            elif (docType == self.docTypes[2]):
-                import legacyConvertHTML
-                legacyConvertHTML.convertHTML(inputFile, outputFile, font)
             else:
-                import legacyConvertText
-                legacyConvertText.convertTxtFile(inputFile, outputFile, font)
-#        except Exception, e:
-#            QtGui.QMessageBox.Critical(self, self.tr("Error"), e)
-#            print "error"
-#        else:
-        QtGui.QMessageBox.information(self, self.tr("Information"), 
-                "Conversion successful!",
-                QtGui.QMessageBox.Yes | QtGui.QMessageBox.Default)
+                if (docType == self.docTypes[0]):
+                    import legacyConvertOdt
+                    converter = legacyConvertOdt.legacyConvertOdt()
+                    converter.convertOdtFile(inputFile, outputFile, font, fontSize)
+                    
+                elif (docType == self.docTypes[2]):
+                    import legacyConvertHTML
+                    legacyConvertHTML.convertHTML(inputFile, outputFile, font)
+                else:
+                    import legacyConvertText
+                    legacyConvertText.convertTxtFile(inputFile, outputFile, font)
+        except Exception, e:
+            QtGui.QMessageBox.critical(self, self.tr("Error"), self.tr(str(e)))
+            #print e
+        else:
+            QtGui.QMessageBox.information(self, self.tr("Information"), 
+                    "Conversion successful!",
+                    QtGui.QMessageBox.Yes | QtGui.QMessageBox.Default)
 
                 
 def main():

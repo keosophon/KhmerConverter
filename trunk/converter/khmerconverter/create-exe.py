@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
 # (c) 2006 The WordForge Foundation, all rights reserved.
@@ -30,21 +30,28 @@ import sys
 from distutils.core import setup
 import py2exe
 
+opts = {
+    "py2exe": {
+        "includes": "sip",
+    }
+}
+
 def files(folder):
     for path in glob.glob(folder+'/*'):
         if os.path.isfile(path):
             yield path
 
 data_files=[
-            ('.', glob.glob(sys.prefix+'/DLLs/tix81*.dll')),
-            ('tcl/tix8.1', files(sys.prefix+'/tcl/tix8.1')),
-            ('tcl/tix8.1/bitmaps', files(sys.prefix+'/tcl/tix8.1/bitmaps')),
-            ('tcl/tix8.1/pref', files(sys.prefix+'/tcl/tix8.1/pref')),
-           ]
+    ('.', glob.glob(sys.prefix+'/DLLs/tix81*.dll')),
+    ('tcl/tix8.1', files(sys.prefix+'/tcl/tix8.1')),
+    ('tcl/tix8.1/bitmaps', files(sys.prefix+'/tcl/tix8.1/bitmaps')),
+    ('tcl/tix8.1/pref', files(sys.prefix+'/tcl/tix8.1/pref')),
+    ]
 
 setup(
-      script_args=['py2exe'],
-      data_files=data_files,
-      windows=[{"script": "khmerconverter.py", "icon_resources": [(1, "converter.ico")]}],
-      packages = ['modules']
-     )
+    options = opts,
+    script_args=['py2exe'],
+    data_files=data_files,
+    windows=[{"script": "khmerconverter.py", "icon_resources": [(1, "converter.ico")]}],
+    packages = ["modules", "images"],
+    )
