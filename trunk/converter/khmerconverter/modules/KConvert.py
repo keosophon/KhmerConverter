@@ -38,7 +38,7 @@ class Kconvert(QtGui.QMainWindow):
 
         self.tab = "Leg"
         self.originExt = ".txt"
-        settingOrg = "WordForge"
+        settingOrg = "KhmerConverter"
         settingApp = "Khmer Converter"
         self.settings = QtCore.QSettings(QtCore.QSettings.IniFormat, QtCore.QSettings.UserScope,settingOrg, settingApp)
 
