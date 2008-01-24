@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#Copyright (c) 2006 - 2007 by The WordForge Foundation
-#                       www.wordforge.org
+# Copyright(c) 2006-2008 Khmer Software Initiative
+#               www.khmeros.info
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2.1
+# as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
 # 
 # See the LICENSE file for more details. 

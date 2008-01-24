@@ -2,11 +2,12 @@
 # -*- coding: utf8 -*-
 
 # Khmer Lnicode fonts to Khmer Legacy Conversion
-# (c) 2006 The WordForge Foundation, all rights reserved.
+# Copyright(c) 2006-2008 Khmer Software Initiative
+#               www.khmeros.info
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
 #
 # See the LICENSE file for more details.
@@ -380,7 +381,7 @@ class TestReordering(unittest.TestCase):
     def testReordering(self):
         # low vowel under coeng go deeper
         self.assertEqual(reorder(u'ខ្នុ'), u'ខ្ន' + MARK + u'ុ')
-        self.assertEqual(reorder(u'ត្រូ'), u'្រត' + MARK + u'ូ')
+        self.assertEqual(reorder(u'ត្រូ'), u'្រត' + MARK + u'ូ')        
         self.assertEqual(reorder(u'ព្យួ'), u'ព្យ' + MARK + u'ួ')
         # vowel under LA or NYO go deeper
         self.assertEqual(reorder(u'ឡូ'), u'ឡ' + MARK + u'ូ')

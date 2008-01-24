@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 # Khmer Legacy to Khmer Unicode Conversion and Vice Versa
-# (c) 2006 The WordForge Foundation, all rights reserved.
+# Copyright(c) 2006-2008 Khmer Software Initiative
+#               www.khmeros.info
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
 #
 # See the LICENSE file for more details.

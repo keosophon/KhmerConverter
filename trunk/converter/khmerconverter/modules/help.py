@@ -1,9 +1,10 @@
 # Khmer converter
-# (c) 2006 The WordForge Foundation, all rights reserved.
+# (c) 2006-2008 Khmer Software Initiative
+#           www.khmeros.info
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
 #
 # See the LICENSE file for more details.
@@ -31,7 +32,7 @@ class HelpText:
         self.help.subwidget_list['text'].insert(END, """Khmer Converter
 
 Version: """ + __version__.ver + """
-Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
+Copyright (c) 2006-2008 by Khmer Software Initiative(www.khmeros.info)
 
 This program converts plain text, OpenOffice.org Writer (odt) or HTML File from 
 legacy to unicode format or vice versa. The currently supported legacy fonts 
@@ -80,10 +81,10 @@ Python as well.\n\n\n""")
         self.help.subwidget_list['text'].insert(END, """LICENSE
         
 This program is free software; you can redistribute it and/or modify it under 
-the terms of the GNU Lesser General Public License as published by the Free 
-Software Foundation; either version 2.1 of the License, or (at your option) 
+the terms of the GNU General Public License as published by the Free 
+Software Foundation; either version 2 of the License, or (at your option) 
 any later version.
         
-Please see more details about license\nhttp://www.gnu.org/licenses/lgpl.html\n\n""")
+Please see more details about license\nhttp://www.gnu.org/licenses/gpl.html\n\n""")
 
         self.help.text['state'] = 'disabled'

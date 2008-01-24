@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-#Copyright (c) 2006 - 2007 by The WordForge Foundation
-#                       www.wordforge.org
+# Copyright(c) 2006-2008 Khmer Software Initiative
+#               www.khmeros.info
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -30,10 +30,11 @@ class AboutKConvert(QtGui.QDialog):
     def showDialog(self):
         #lazy init
         if (not self.ui):
-            tabWidget = QtGui.QTabWidget()
+            tabWidget = QtGui.QTabWidget() 
+#               
             
             #About Tab
-            tabWidget.addTab(LabelTab(QtCore.Qt.AlignCenter, self.tr("<center><br><br><br><b>  Khmer Converter </b></center><center><br> Version " +  __version__.ver + "</br><br>Copyright @ 2006 - 2007 <br></br> The WordForge Foundation.</br><br><a href='http://www.khmeros.info'>www.wordforge.org</a></center>")), self.tr("&About Khmer Converter"))
+            tabWidget.addTab(LabelTab(QtCore.Qt.AlignCenter, self.tr("<center><br><br><br><b>  Khmer Converter </b></center><center><br> Version " +  __version__.ver + "</br><br>Copyright(c) 2006-2008<br></br> The Khmer Software Initiative.</br><br><a href='http://www.khmeros.info'>www.khmeros.info</a></center>")), self.tr("&About Khmer Converter"))
             
             #Author Tab
             tabWidget.addTab(LabelTab(QtCore.Qt.AlignLeft, self.tr('<br>Hok Kakada (<a href="mailto:hokkakada@khmeros.info">hokkakada@khmeros.info</a>)<br><br>Keo Sophon (<a href="mailto:keosophon@khmeros.info">keosophon@khmeros.info</a>)<br><br>San Titvirak (<a href="mailto:titvirak@khmeros.info">titvirak@khmeros.info</a>)<br><br>Seth Chanratha (<a href="mailto:sethchanratha@khmeros.info">sethchanratha@khmeros.info</a>)')), self.tr("A&uthors"))
