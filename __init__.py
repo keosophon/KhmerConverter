@@ -1,2 +1,3 @@
 """Khmer Legacy to Khmer Unicode Conversion and Vice Versa
-# (c) 2006 The WordForge Foundation, all rights reserved."""
+# Copyright(c) 2006-2008 Khmer Software Initiative
+#               www.khmeros.info."""
