@@ -1,3 +1,13 @@
+01 January 2008: (release version 1.4.3)
+   -  Supported one more legacy font: Kaoh Kong 
+   -  Changed interface to more friendly and easy to used GUI, using QT
+
+31 July 2007: (release version 1.4)
+    - Change the focuse from using tab to mouse
+    - And more support for Khmer Unicode fonts,such as:
+      Khmer OS Content, Khmer OS Muollight, Khmer OS Muol Pali,Khmer OS Siemreap
+      
+
 30 January 2007: (release version 1.3)
     - Improved more coplex styles of ODT files
     - The last change in each widget is not used when we click on convert.

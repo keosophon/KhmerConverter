@@ -1,8 +1,8 @@
 			 khmerConverter
-Copyright (c) 2006 by The WordForge Foundation (All Rights Reserved)
+Copyright (c) 2006 by Khmer Software Initiative 
 			www.khmeros.info
 
-Version:	1.4	Date:	1 June 2007
+Version:	1.4.3	Date:	1 January 2008
 
 Developed by:
 	Hok Kakada (hokkakada@khmeros.info)
@@ -12,7 +12,7 @@ Developed by:
 
 # This program creates a Plain Text, OpenOffice.org Writer (odt), or HTML file
 # in Khmer Unicode/Legacy format from Legacy/Unicode input file respectively.
-# Currently it supports legacy font types: ABC, ABC-ZWSP, Baidok, Fk, Khek, Limon, Truth
+# Currently it supports legacy font types: ABC, ABC-ZWSP, Baidok, Fk, Kaoh Kong, Khek, Limon, Truth
 
 USAGE:
 ======
@@ -73,5 +73,7 @@ You might have to follow these steps to solve the problem:
 IMPORTANT CHANGES:
 =================
 
-1. Added more KhmerOS fonts: KhmerOScontent.ttf, KhmerOSmuollight.ttf, KhmerOSmuolpali.ttf, KhmerOSsiemreap.ttf, 
-2. Fixed the bug that when we type in the disired size in spinsize box then click on convert immediately, the size didn't change.
+1. Supported one more legacy font: Kaoh Kong 
+2. Changed interface to more friendly and easy to used GUI, using QT
+
+To see any changes in each version, please read CHANGELOG.TXT file.
