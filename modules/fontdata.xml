@@ -11,6 +11,50 @@
           <!-- nbsp = non breaking space -->
           <!ENTITY nbsp "&#xA0;">
 ]>
+<!--
+One font is definied per <font> tag and the type attribute identifies it.
+The fonts can inherit a base font by the means of the inherit attribute.
+Multiple inheritance is not supported yet.
+
+The current inheritance tree is like this:
+    digit
+        common font
+            abc parent
+                abc
+                abc2
+                abc3
+                abc-zwsp
+            limon parent
+                limon
+                truth
+        baidok
+        khek
+        kaohkong
+    fk
+    
+Inside of the <font> tag you may have a tag for aliases.
+
+There is always a <maps> tag which might have up to three different mappings:
+    1. <global> for mappings that are used in both direktions
+    2. <tounicode> for mappings from legacy to unicode
+    3. <fromunicode> for mappings from unicode to legacy
+
+    
+The magic with the mark character (0x17EA):
+
+This character does not exist in unicode and it is inserted from the converter to mark 
+any glyph that is in an unusually high or low position. You may use it if you legacy font supports different
+positions for the same glyph in different code points.
+
+
+Adding new fonts:
+
+In order to keep this file small you have to compare the new font with the existing fonts in this file.
+If you find a font that is very similar you should create a new base font, which contains everything that is
+equal in both fonts, the old one and the new one. Then you inhert in the old font and in the new font this
+new base font.
+
+-->
 
 <fontdata version="1.0">
     <fonts>
