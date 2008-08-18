@@ -1162,6 +1162,8 @@ new base font.
                     <map legacy="0x6f;0x56" unicode="ឫ"/>
                     <map legacy="0x75;0xfb" unicode="ឮ"/>
                     <map legacy="0x75;0x56" unicode="ឭ"/>
+		 <map legacy="0x75;0x70" unicode="ញ"/>
+		 <map legacy="0x75;0x70;0x56" unicode="ញ"/>
                     <map legacy="0x73;0xf1" unicode="ែ"/>
                 </tounicode>
                 <fromunicode>
@@ -1386,6 +1388,262 @@ new base font.
                 </fromunicode>
             </maps>
         </font>
+        
+        <font type="rasmei" default="A Rasmei Kampuchea Text">
+            <aliases>
+                <alias name="A Rasmei Kampuchea Text"/>
+                <alias name="Khmer Chantha"/>
+                <alias name="Khmer Kep"/>
+            </aliases>
+            <maps>
+                <global>
+                    <map legacy="0x21" unicode="១"/>
+                    <map legacy="0x22" unicode="្ឃ"/>
+                    <map legacy="0x23" unicode="៣"/>
+                    <map legacy="0x24" unicode="៤"/>
+                    <map legacy="0x25" unicode="៥"/>
+                    <map legacy="0x26" unicode="៧"/>
+                    <map legacy="0x27" unicode="ឃ"/>
+                    <map legacy="0x28" unicode="៩"/>
+                    <map legacy="0x29" unicode="០"/>
+                    <map legacy="0x2a" unicode="៨"/>
+                    <map legacy="0x2b" unicode="&coeng;ង"/>
+                    <map legacy="0x2c" unicode="ូ"/>
+                    <map legacy="0x2d" unicode="&coeng;ច"/>
+                    <map legacy="0x2e" unicode="ួ"/>
+                    <map legacy="0x2f" unicode="&coeng;ម"/>
+                    <map legacy="0x30" unicode="ៗ"/>
+                    <map legacy="0x31" unicode="ហ"/>
+                    <map legacy="0x32" unicode="ជ"/>
+                    <map legacy="0x33" unicode="គ"/>
+                    <map legacy="0x34" unicode="ភ"/>
+                    <map legacy="0x35" unicode="ខ"/>
+                    <map legacy="0x36" unicode="ធ"/>
+                    <map legacy="0x37" unicode="ទ"/>
+                    <map legacy="0x38" unicode="វ"/>
+                    <map legacy="0x39" unicode="ង"/>
+                    <map legacy="0x3a" unicode="&coeng;ជ"/>
+                    <map legacy="0x3b" unicode="ផ"/>
+                    <map legacy="0x3d" unicode="&coeng;អ"/>
+                    <map legacy="0x3f" unicode="&coeng;គ"/>
+                    <map legacy="0x40" unicode="២"/>
+                    <map legacy="0x41" unicode="ឯ"/>
+                    <map legacy="0x43" unicode="&coeng;ថ"/>
+                    <map legacy="0x44" unicode="ៃ"/>
+                    <map legacy="0x45" unicode="ឺ"/>
+                    <map legacy="0x46" unicode="ៈ"/>
+                    <map legacy="0x48" unicode="ះ"/>
+                    <map legacy="0x49" unicode="ៀ"/>
+                    <map legacy="0x4a" unicode="&coeng;ត"/>
+                    <map legacy="0x4b" unicode="&coeng;ស"/>
+                    <map legacy="0x4c" unicode="&coeng;យ"/>
+                    <map legacy="0x4e" unicode="&coeng;ក"/>
+                    <map legacy="0x4f" unicode="&coeng;ប"/>
+                    <map legacy="0x50" unicode="ៅ"/>
+                    <map legacy="0x51" unicode="&coeng;ទ"/>
+                    <map legacy="0x52" unicode="ឹ"/>
+                    <map legacy="0x53" unicode="ែ"/>
+                    <map legacy="0x54" unicode="ី"/>
+                    <map legacy="0x55" unicode="ឿ"/>
+                    <map legacy="0x56" unicode="&coeng;ញ"/>
+                    <map legacy="0x57" unicode="&coeng;ឌ"/>
+                    <map legacy="0x58" unicode="&coeng;ឆ"/>
+                    <map legacy="0x59" unicode="ិ"/>
+                    <map legacy="0x5a" unicode="&coeng;ឈ"/>
+                    <map legacy="0x5b" unicode="ាំ"/>
+                    <map legacy="0x5c" unicode="។"/>
+                    <map legacy="0x5d" unicode="ំ"/>
+                    <map legacy="0x5e" unicode="៦"/>
+                    <map legacy="0x5f" unicode="&coeng;ណ"/>
+                    <map legacy="0x60" unicode="&coeng;វ"/>
+                    <map legacy="0x61" unicode="់"/>
+                    <map legacy="0x62" unicode="អ"/>
+                    <map legacy="0x63" unicode="ថ"/>
+                    <map legacy="0x64" unicode="&coeng;រ"/>
+                    <map legacy="0x65" unicode="ឡ"/>
+                    <map legacy="0x66" unicode="ច"/>
+                    <map legacy="0x67" unicode="រ"/>
+                    <map legacy="0x68" unicode="ល"/>
+                    <map legacy="0x69" unicode="ត"/>
+                    <map legacy="0x6a" unicode="ដ"/>
+                    <map legacy="0x6b" unicode="ស"/>
+                    <map legacy="0x6c" unicode="យ"/>
+                    <map legacy="0x6d" unicode="ុ"/>
+                    <map legacy="0x6e" unicode="ណ"/>
+                    <map legacy="0x6f" unicode="ប"/>
+                    <map legacy="0x70" unicode="ា"/>
+                    <map legacy="0x71" unicode="៉"/>
+                    <map legacy="0x72" unicode="ម"/>
+                    <map legacy="0x73" unicode="េ"/>
+                    <map legacy="0x74" unicode="ក"/>
+                    <map legacy="0x75" unicode="ព"/>
+                    <map legacy="0x77" unicode="&coeng;ធ"/>
+                    <map legacy="0x78" unicode="ឆ"/>
+                    <map legacy="0x79" unicode="ន"/>
+                    <map legacy="0x7a" unicode="ឈ"/>
+                    <map legacy="0x7b" unicode="&coeng;ល"/>
+                    <map legacy="0x7c" unicode="៕"/>
+                    <map legacy="0x7d" unicode="&coeng;ខ"/>
+                    <map legacy="0x7e" unicode="&coeng;ផ"/>
+                    <map legacy="0x82" unicode=")"/>
+                    <map legacy="0x83" unicode="ឫ"/>
+                    <map legacy="0x84" unicode="."/>
+                    <map legacy="0x86" unicode="ឪ"/>
+                    <map legacy="0x87" unicode="^"/>
+                    <map legacy="0x88" unicode="ញ"/>
+                    <map legacy="0x89" unicode="ឩ"/>
+                    <map legacy="0x8b" unicode="#"/>
+                    <map legacy="0x8c" unicode="?"/>
+                    <map legacy="0x92" unicode="}"/>
+                    <map legacy="0x93" unicode="៎"/>
+                    <map legacy="0x94" unicode="{"/>
+                    <map legacy="0x96" unicode="×"/>
+                    <map legacy="0x97" unicode="-"/>
+                    <map legacy="0x98" unicode="6"/>
+                    <!-- <map legacy="0x99" unicode="<"/> -->
+                    <map legacy="0x9b" unicode="$"/>
+                    <map legacy="0x9c" unicode="&coeng;ឍ"/>
+                    <map legacy="0x9f" unicode="1"/>
+                    <map legacy="0xa1" unicode=","/>
+                    <map legacy="0xa2" unicode="«"/>
+                    <!-- <map legacy="0xa3" unicode=">"/> -->
+                    <map legacy="0xa4" unicode="៖"/>
+                    <map legacy="0xa6" unicode="|"/>
+                    <map legacy="0xa7" unicode="/"/>
+                    <map legacy="0xa8" unicode="•"/>
+                    <map legacy="0xa9" unicode="ឬ"/>
+                    <map legacy="0xab" unicode="_"/>
+                    <map legacy="0xac" unicode="&coeng;ន"/>
+                    <map legacy="0xae" unicode="ឧ"/>
+                    <map legacy="0xaf" unicode="8"/>
+                    <map legacy="0xb0" unicode="*"/>
+                    <map legacy="0xb1" unicode="+"/>
+                    <map legacy="0xb2" unicode="’"/>
+                    <map legacy="0xb3" unicode="‘"/>
+                    <map legacy="0xb5" unicode="៏"/>
+                    <map legacy="0xb7" unicode="("/>
+                    <map legacy="0xb9" unicode="%"/>
+                    <map legacy="0xbb" unicode="&coeng;ឋ"/>
+                    <map legacy="0xbe" unicode="¾"/>
+                    <map legacy="0xbf" unicode="0"/>
+                    <map legacy="0xc0" unicode="5"/>
+                    <map legacy="0xc2" unicode="7"/>
+                    <map legacy="0xc3" unicode="9"/>
+                    <map legacy="0xc4" unicode="="/>
+                    <map legacy="0xc7" unicode="3"/>
+                    <map legacy="0xcb" unicode="2"/>
+                    <map legacy="0xcc" unicode="\"/>
+                    <map legacy="0xd1" unicode="៌"/>
+                    <map legacy="0xd5" unicode="ុំ"/>
+                    <map legacy="0xd6" unicode="៍"/>
+                    <!-- <map legacy="0xd7" unicode="ំ"/> not om -->
+                    <map legacy="0xd8" unicode="["/>
+                    <map legacy="0xd9" unicode="៚"/>
+                    <map legacy="0xdb" unicode="…"/>
+                    <map legacy="0xdd" unicode="“"/>
+                    <map legacy="0xde" unicode="”"/>
+                    <map legacy="0xdf" unicode="ឭ"/>
+                    <map legacy="0xe0" unicode="ឌ"/>
+                    <map legacy="0xe1" unicode="ឮ"/>
+                    <map legacy="0xe2" unicode="]"/>
+                    <map legacy="0xe3" unicode="ឥ"/>
+                    <map legacy="0xe4" unicode="ិ៍"/>
+                    <map legacy="0xe5" unicode="&coeng;ឫ"/>
+                    <map legacy="0xe6" unicode="&coeng;ហ"/>
+                    <map legacy="0xe7" unicode="ឋ"/>
+                    <map legacy="0xe8" unicode="ឱ"/>
+                    <map legacy="0xe9" unicode="ឍ"/>
+                    <map legacy="0xea" unicode="៊័"/>
+                    <map legacy="0xeb" unicode="&coeng;ញូ"/>
+                    <map legacy="0xef" unicode="ឦ"/>
+                    <map legacy="0xf0" unicode="≠"/>
+         
+                    <map legacy="0xf1" unicode="័"/>
+                    <map legacy="0xf2" unicode="ឰ"/>
+                    <map legacy="0xf5" unicode="!"/>
+                    <map legacy="0xf6" unicode="4"/>
+                    <map legacy="0xf8" unicode="៊"/>
+                    <map legacy="0xf9" unicode="៛"/>
+                    <map legacy="0xff" unicode="&coeng;ព"/>                    
+                    <map legacy="0x5c;0x68;0x5c" unicode="៘"/>
+                </global>
+                <tounicode>
+                    <map legacy="0x3c" unicode="ូ"/>
+                    <map legacy="0x3e" unicode="ួ"/>
+                    <map legacy="0x42" unicode="ប"/>
+                    <map legacy="0x47" unicode="&coeng;រ"/>
+                    <map legacy="0x4d" unicode="ុ"/>
+                    <map legacy="0x76" unicode="ញ"/>
+                    <map legacy="0x85" unicode="&coeng;ត"/>
+                    <map legacy="0x91" unicode="ំ"/>
+                    <map legacy="0x95" unicode="ី"/>
+                    <map legacy="0xaa" unicode="ឹ"/>
+                    <map legacy="0xb4" unicode="&coeng;វ"/>
+                    <map legacy="0xb6" unicode="ិ"/>
+                    <map legacy="0xb8" unicode="1"/>
+                    <map legacy="0xba" unicode="ឺ"/>
+                    <map legacy="0xdc" unicode="៏"/>
+                    <map legacy="0xec" unicode="&coeng;ស"/>
+                    <map legacy="0xed" unicode="&coeng;យ"/>
+                    <map legacy="0xee" unicode="ៀ"/>
+                    <map legacy="0xf3" unicode="&coeng;ញ"/>
+                    <map legacy="0xf4" unicode="ុំ"/>
+                    <map legacy="0xf7" unicode="&coeng;ម"/>
+                    <map legacy="0xfa" unicode="%"/>
+                    <map legacy="0xfc" unicode="ឿ"/>
+                    <map legacy="0x76;0x56" unicode="ញ"/>
+                </tounicode>
+                <fromunicode>
+                
+                    <map legacy="" unicode="&zwsp;"/>
+                    <map legacy="" unicode="&zwnj;"/>
+                    <map legacy="" unicode="&zwj;"/>
+                    <map legacy="0x3c" unicode="&mark;ូ"/>
+                    <map legacy="0x3e" unicode="&mark;ួ"/>
+                    <map legacy="0x47" unicode="&mark;&coeng;រ"/>
+                    <map legacy="0x4a" unicode="&coeng;ដ"/>
+                    <map legacy="0x4d" unicode="&mark;ុ"/>
+                    <map legacy="0x4d" unicode="&mark;&mark;៊"/>
+                    <map legacy="0x4d" unicode="&mark;&mark;៉"/>
+                    <map legacy="0x6d" unicode="&mark;៉"/>
+                    <map legacy="0x6d" unicode="&mark;៊"/>
+                    <map legacy="0x76" unicode="&mark;ញ"/>
+                    <map legacy="0x91" unicode="&mark;ំ"/>
+                    <map legacy="0x95" unicode="&mark;ី"/>
+                    <map legacy="0xaa" unicode="&mark;ឹ"/>
+                    <map legacy="0xb4" unicode="&mark;&coeng;វ"/>
+                    <map legacy="0xb6" unicode="&mark;ិ"/>
+                    <map legacy="0xba" unicode="&mark;ឺ"/>
+                    <!--
+                    <map legacy="0xc6" unicode="&mark;&coeng;ហ"/>
+                    -->
+                    <map legacy="0xc8" unicode="ឪ"/>
+                    <map legacy="0xec" unicode="&mark;&coeng;ស"/>
+                    <map legacy="0xed" unicode="&mark;&coeng;យ"/>
+                    <map legacy="0xee" unicode="&mark;ៀ"/>
+                    <map legacy="0xf3" unicode="&mark;&coeng;ញ"/>
+                    <map legacy="0xf4" unicode="&mark;ុំ"/>
+                    <map legacy="0xf7" unicode="&mark;&coeng;ម"/>
+                    <map legacy="0xfc" unicode="&mark;ឿ"/>
+                    <!--
+                    <map legacy="0xc5" unicode="ហ៊"/>
+                    -->
+                    <map legacy="0xc6" unicode="&mark;&coeng;ហ"/>
+                    <!--
+                    <map legacy="0xca" unicode="រ៉"/>
+                    <map legacy="0xcd" unicode="ញ៉"/>
+                    <map legacy="0xce" unicode="ម៉"/>
+                    <map legacy="0xcf" unicode="វ៉"/>
+                    <map legacy="0xd2" unicode="យ៉"/>
+                    <map legacy="0xd3" unicode="ប៉"/>
+                    <map legacy="0xd4" unicode="ប៊"/>
+                    <map legacy="0xda" unicode="អ៊"/>
+                    <map legacy="0xfb" unicode="ស៊"/>
+                    -->
+                    <map legacy="0x42;0x70" unicode="បា"/>
+                </fromunicode>
+            </maps>
+        </font>  
         
     </fonts>
 </fontdata>
