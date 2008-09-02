@@ -182,10 +182,13 @@ class Kconvert(QtGui.QMainWindow):
             self.ui.chbOverrideSizeL.setEnabled(True)
             self.ui.cmbFontInputL.setEnabled(False)
             self.ui.cmbEncodingL.setEnabled(False)
+            self.ui.cmbFontOutputL.setEnabled(True)
+            
         else:
             self.ui.chbOverrideSizeL.setEnabled(False)
             self.ui.cmbFontInputL.setEnabled(True)
             self.ui.cmbEncodingL.setEnabled(True)
+            self.ui.cmbFontOutputL.setEnabled(False)
     
     def docTypeChangedU(self, text):
         if (text == self.typeOdt):
