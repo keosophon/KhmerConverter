@@ -1,7 +1,7 @@
 khmerConverter
 Copyright (c) 2006 by Khmer Software Initiative , www.khmeros.info
 
-Version:	1.5	Date:	20 August 2008
+Version:	1.5.1	Date:	20 August 2008
 
 Developed by:	
 	Keo Sophon (keosophon@khmeros.info)
@@ -11,7 +11,7 @@ Developed by:
 
 # This program creates a Plain Text, OpenOffice.org Writer (odt), or HTML file
 # in Khmer Unicode/Legacy format from Legacy/Unicode input file respectively.
-# Currently it supports legacy font types: ABC, ABC-ZWSP, Baidok, Fk, Kaoh Kong, Khek, Limon, Truth, a rasmei kampuchea...
+# Currently it supports legacy font types: ABC, ABC-ZWSP, Baidok, Fk, Kaoh Kong, Khek, Limon, Truth and a rasmei kampuchea...
 
 USAGE:
 ======
@@ -29,12 +29,25 @@ On Linux and all other Platforms:
     python khmerconverter.py inputFile [outputFile] [OPTION]
         inputFile  ->  converted-inputFile
 or:
-    python khmerconverter.py [OPTION]
-or:
-    python khmerconverter.py
+    python khmerconverter.py or + [OPTION]
 
+or the easy way to run KhmerConverter on Linux Please right click on desktop then Choose Create New -> Link to Application...
+	 After that a dialog will pop up then choose Application tab, to fill in the same of example the following:
+	 - Command:	python khmerconverter.py 
+	 - Work path:	/home/ratha/Desktop/khmerconverter
+
+If you are install from openSuSE Package, you can start KhmerConverter easy following:
+
+For GNOME user
+--------------
+Goto Applications -> Accessories -> Khmer Converter
+
+For KDE user
+------------
+Goto KMenu -> Utility -> Khmer Converter
+ 
 Requirements:
-	- Tix installed (for GUI mode)
+	- Python-Qt4 (for GUI mode)
 
 Running it without any option brings up the graphical user interface.
 
