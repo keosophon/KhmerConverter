@@ -33,6 +33,7 @@ class unicodeConvertOdt:
         self.CONTENTXML = 'content.xml'
         self.STYLESXML = 'styles.xml'
         self.convertibleStyle = {}
+        self.nonConvertibleStyle = {}
         self.fd = FontData()
         self.outputFont = "Khmer OS"
         self.outputFontSize = None
@@ -142,15 +143,18 @@ class unicodeConvertOdt:
                 for child in node.childNodes:
                     if (child.hasAttribute('style:font-name')) and (hasattr(child, "getAttribute")):
                         fontName = child.getAttribute('style:font-name')
-                        try:
-                            fontType = self.fd.typeForFontname(fontName)
-                        except:
-                            return
+                        if fontName:
+                            try:
+                                fontType = self.fd.typeForFontname(fontName)
+                            except:
+                                self.nonConvertibleStyle[styleName] = True
+                                return
             
             parentStyleName = node.getAttribute('style:parent-style-name')
-            if self.convertibleStyle.has_key(parentStyleName):
-                # add to convertible style
+            if parentStyleName and self.convertibleStyle.has_key(parentStyleName):
                 self.convertibleStyle[styleName] = self.convertibleStyle[parentStyleName]
+                node.setAttribute('style:name', self.outputFont)
+                node.setAttribute('svg:font-family', self.outputFont)
             try:
                 fontType = self.fd.typeForFontname(styleName)
             except:
@@ -172,16 +176,15 @@ class unicodeConvertOdt:
                  hasattr(node.parentNode.parentNode, "getAttribute"))):
             return False
         
-        # if node don have font specified, but it's under parent that in convertible list
-        # do also convert node.
+        # if font is not specified on node, but node is under a parent that is
+        # in the convertible list, convert the node.
         styleName = node.parentNode.getAttribute(u'text:style-name')
         parentStyleName = node.parentNode.parentNode.getAttribute(u'text:style-name')
         
         if (styleName in self.convertibleStyle):
             style = styleName
-        elif (styleName not in self.convertibleStyle):
+        elif (styleName in self.nonConvertibleStyle):
             return False
-        elif (parentStyleName in self.convertibleStyle):
             style = parentStyleName
         else:
             return False
